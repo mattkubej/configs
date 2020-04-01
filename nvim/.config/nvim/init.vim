@@ -102,6 +102,7 @@ set colorcolumn=80 " and give me a colored column
 
 let base16colorspace=256
 colorscheme base16-gruvbox-dark-soft
+set termguicolors
 
 " Permanent undo
 set undodir=~/.vimdid

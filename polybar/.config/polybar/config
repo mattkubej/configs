@@ -1,36 +1,35 @@
-;==========================================================
-;
-;
-;   ██████╗  ██████╗ ██╗  ██╗   ██╗██████╗  █████╗ ██████╗
-;   ██╔══██╗██╔═══██╗██║  ╚██╗ ██╔╝██╔══██╗██╔══██╗██╔══██╗
-;   ██████╔╝██║   ██║██║   ╚████╔╝ ██████╔╝███████║██████╔╝
-;   ██╔═══╝ ██║   ██║██║    ╚██╔╝  ██╔══██╗██╔══██║██╔══██╗
-;   ██║     ╚██████╔╝███████╗██║   ██████╔╝██║  ██║██║  ██║
-;   ╚═╝      ╚═════╝ ╚══════╝╚═╝   ╚═════╝ ╚═╝  ╚═╝╚═╝  ╚═╝
-;
-;
-;   To learn more about how to configure Polybar
-;   go to https://github.com/polybar/polybar
-;
-;   The README contains a lot of information
-;
-;==========================================================
+[theme]
+; base16 - gruvbox dark, soft 
+grey---- = #32302f
+grey--- = #3c3836
+grey-- = #504945
+grey- = #665c54
+tan+ = #bdae93
+tan++ = #d5c4a1
+tan+++ = #ebdbb2
+tan++++ = #fbf1c7
+
+red = #fb4934
+orange = #fe8019
+yellow = #fabd2f
+green = #b8bb26
+aqua = #8ec07c
+blue = #83a598
+purple = #d3869b
+brown = #d65d0e
 
 [colors]
-background = #32302f
-background-alt = #504945
-foreground = #fbf1c7
-foreground-alt = #ebdbb2
-primary = #83a598
-secondary = #8ec07c
-alert = #fb4934
+background = ${theme.grey----}
+background-alt = ${theme.grey--}
+foreground = ${theme.tan++++} 
+foreground-alt = ${theme.tan++} 
+primary = ${theme.blue} 
+secondary = ${theme.aqua} 
+alert = ${theme.red}
 
 [bar/main]
-;monitor = ${env:MONITOR:HDMI-1}
 width = 100%
 height = 27
-;offset-x = 1%
-;offset-y = 1%
 radius = 6.0
 fixed-center = false
 
@@ -41,7 +40,7 @@ line-size = 3
 line-color = #f00
 
 border-size = 4
-border-color = #00000000
+;border-color = #00000000
 
 padding-left = 0
 padding-right = 2
@@ -58,13 +57,9 @@ modules-right = filesystem pulseaudio xkeyboard memory cpu eth temperature date 
 
 tray-position = right
 tray-padding = 2
-;tray-background = #0063ff
 
 ;wm-restack = i3
 ;override-redirect = false
-
-;scroll-up = i3wm-wsnext
-;scroll-down = i3wm-wsprev
 
 cursor-click = pointer
 cursor-scroll = ns-resize
@@ -79,15 +74,15 @@ blacklist-0 = num lock
 
 format-prefix = " "
 format-prefix-foreground = ${colors.foreground-alt}
-format-prefix-underline = ${colors.secondary}
+format-prefix-underline = ${colors.primary}
 
 label-layout = %layout%
-label-layout-underline = ${colors.secondary}
+label-layout-underline = ${colors.primary}
 
 label-indicator-padding = 2
 label-indicator-margin = 1
-label-indicator-background = ${colors.secondary}
-label-indicator-underline = ${colors.secondary}
+label-indicator-background = ${colors.primary}
+label-indicator-underline = ${colors.primary}
 
 [module/filesystem]
 type = internal/fs
@@ -104,9 +99,6 @@ type = internal/i3
 format = <label-state> <label-mode>
 index-sort = true
 wrapping-scroll = false
-
-; Only show workspaces on the same output as the bar
-;pin-workspaces = true
 
 label-mode-padding = 2
 label-mode-foreground = #000
@@ -133,15 +125,12 @@ label-urgent = %index%
 label-urgent-background = ${colors.alert}
 label-urgent-padding = 2
 
-; Separator in between workspaces
-; label-separator = |
-
 [module/cpu]
 type = internal/cpu
 interval = 2
 format-prefix = " "
 format-prefix-foreground = ${colors.foreground-alt}
-format-underline = #f90000
+format-underline = ${colors.primary} 
 label = %percentage:2%%
 
 [module/memory]
@@ -149,7 +138,7 @@ type = internal/memory
 interval = 2
 format-prefix = " "
 format-prefix-foreground = ${colors.foreground-alt}
-format-underline = #4bffdc
+format-underline = ${colors.primary} 
 label = %percentage_used%%
 
 [module/eth]
@@ -157,16 +146,12 @@ type = internal/network
 interface = enp2s0
 interval = 3.0
 
-format-connected-underline = #55aa55
+format-connected-underline = ${colors.primary} 
 format-connected-prefix = " "
 format-connected-prefix-foreground = ${colors.foreground-alt}
 label-connected = %local_ip%
 
 format-disconnected =
-;format-disconnected = <label-disconnected>
-;format-disconnected-underline = ${self.format-connected-underline}
-;label-disconnected = %ifname% disconnected
-;label-disconnected-foreground = ${colors.foreground-alt}
 
 [module/date]
 type = internal/date
@@ -180,7 +165,7 @@ time-alt = %I:%M:%S
 
 format-prefix = 
 format-prefix-foreground = ${colors.foreground-alt}
-format-underline = #0a6cf5
+format-underline = ${colors.primary}
 
 label = %date% %time%
 
@@ -192,16 +177,16 @@ label-volume = VOL %percentage%%
 label-volume-foreground = ${root.foreground}
 
 label-muted = 🔇 muted
-label-muted-foreground = #666
+label-muted-foreground = ${colors.background-alt} 
 
 bar-volume-width = 10
-bar-volume-foreground-0 = #55aa55
-bar-volume-foreground-1 = #55aa55
-bar-volume-foreground-2 = #55aa55
-bar-volume-foreground-3 = #55aa55
-bar-volume-foreground-4 = #55aa55
-bar-volume-foreground-5 = #f5a70a
-bar-volume-foreground-6 = #ff5555
+bar-volume-foreground-0 = ${theme.green}
+bar-volume-foreground-1 = ${theme.green}
+bar-volume-foreground-2 = ${theme.green} 
+bar-volume-foreground-3 = ${theme.green}
+bar-volume-foreground-4 = ${theme.green}
+bar-volume-foreground-5 = ${theme.orange}
+bar-volume-foreground-6 = ${theme.red} 
 bar-volume-gradient = false
 bar-volume-indicator = |
 bar-volume-indicator-font = 2
@@ -217,7 +202,7 @@ thermal-zone = 0
 warn-temperature = 60
 
 format = <ramp> <label>
-format-underline = #f50a4d
+format-underline = ${colors.primary}
 format-warn = <ramp> <label-warn>
 format-warn-underline = ${self.format-underline}
 
@@ -238,9 +223,9 @@ expand-right = true
 format-spacing = 1
 
 label-open = 
-label-open-foreground = ${colors.secondary}
+label-open-foreground = ${theme.brown}
 label-close =  cancel
-label-close-foreground = ${colors.secondary}
+label-close-foreground = ${theme.brown}
 label-separator = |
 label-separator-foreground = ${colors.foreground-alt}
 
@@ -261,14 +246,7 @@ menu-2-1-exec = menu-open-0
 
 [settings]
 screenchange-reload = true
-;compositing-background = xor
-;compositing-background = screen
-;compositing-foreground = source
-;compositing-border = over
-;pseudo-transparency = false
 
 [global/wm]
 margin-top = 5
 margin-bottom = 5
-
-; vim:ft=dosini

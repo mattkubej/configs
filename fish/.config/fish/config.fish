@@ -1,6 +1,6 @@
 fish_vi_key_bindings
 
-alias sp='vim $HOME/notes/scratchpad-(date +"%m-%d-%Y").md'
+alias sp='nvim $HOME/notes/scratchpad-(date +"%m-%d-%Y").md'
 
 # allow for ctrl+f in vi-mode
 # https://github.com/fish-shell/fish-shell/issues/3541#issuecomment-260001906

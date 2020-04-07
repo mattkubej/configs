@@ -1,5 +1,6 @@
 fish_vi_key_bindings
 
+# scratchpad for quick note taking
 alias sp='nvim $HOME/notes/scratchpad-(date +"%m-%d-%Y").md'
 
 # allow for ctrl+f in vi-mode
@@ -10,10 +11,12 @@ function fish_user_key_bindings
     end
 end
 
+# startup fish in tmux
 if status --is-interactive
   tmux ^ /dev/null; and exec true
 end
 
+# override ls with exa, if exists
 if command -v exa > /dev/null
   abbr -a l 'exa'
   abbr -a ls 'exa'

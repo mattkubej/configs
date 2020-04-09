@@ -1,6 +1,8 @@
 set shell=/bin/bash
 let mapleader = "\<Space>"
 
+set nocompatible
+filetype plugin on
 syntax on
  
 set tabstop=2 shiftwidth=2 expandtab
@@ -48,6 +50,7 @@ Plug 'dag/vim-fish'
 Plug 'chriskempson/base16-vim'
 Plug 'dense-analysis/ale'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'vimwiki/vimwiki'
 
 " Initialize plugin system
 call plug#end()

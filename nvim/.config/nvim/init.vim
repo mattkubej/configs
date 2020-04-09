@@ -149,3 +149,14 @@ function! s:show_documentation()
     call CocAction('doHover')
   endif
 endfunction
+
+" vimwiki change to markdown
+let g:vimwiki_list = [{'path': '~/vimwiki/',
+                      \ 'syntax': 'markdown', 'ext': '.md'}]
+
+" urlview shortcut
+if has('nvim') 
+  noremap <leader>u :w \| startinsert \| term urlview %<cr> 
+else 
+  noremap <leader>u :silent w !urlview<CR> 
+endif

@@ -153,10 +153,5 @@ endfunction
 " vimwiki change to markdown
 let g:vimwiki_list = [{'path': '~/vimwiki/',
                       \ 'syntax': 'markdown', 'ext': '.md'}]
-
-" urlview shortcut
-if has('nvim') 
-  noremap <leader>u :w \| startinsert \| term urlview %<cr> 
-else 
-  noremap <leader>u :silent w !urlview<CR> 
-endif
+let g:vimwiki_url_maxsave=0
+let g:vimwiki_global_ext=0

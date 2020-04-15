@@ -51,6 +51,7 @@ Plug 'chriskempson/base16-vim'
 Plug 'dense-analysis/ale'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'vimwiki/vimwiki'
+Plug 'jremmen/vim-ripgrep'
 
 " Initialize plugin system
 call plug#end()
@@ -58,7 +59,7 @@ call plug#end()
 " NERDTree
 nnoremap <C-n> :NERDTreeToggle<CR>
 nnoremap <leader>n :NERDTreeFind<CR>
- let NERDTreeShowHidden=1
+let NERDTreeShowHidden=1
  
 " Autoformat
 noremap <F3> :Autoformat<CR>
@@ -71,7 +72,12 @@ let g:jsx_ext_required = 0
 
 " fzf
 nnoremap <c-p> :FZF<cr>
-nnoremap <leader>z :Ag<cr>
+
+" rg
+if executable('rg')
+    let g:rg_derive_root='true'
+endif
+nnoremap <leader>z :Rg<SPACE>
 
 " Turn backup off
 set nobackup

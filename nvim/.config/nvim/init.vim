@@ -1,3 +1,6 @@
+" ========================================
+" --> editor settings
+" ========================================
 set shell=/bin/bash
 let mapleader = "\<Space>"
 
@@ -5,124 +8,132 @@ set nocompatible
 filetype plugin on
 syntax on
  
-set tabstop=2 shiftwidth=2 expandtab
+set tabstop=2 shiftwidth=2
+set expandtab
 set autoindent
 set smartindent
 set cindent
+set nowrap
+set hidden
  
-set number
 set clipboard=unnamedplus
 set backspace=indent,eol,start
 set laststatus=2
 set noshowmode
 set timeout timeoutlen=1000 ttimeoutlen=100
+
+" turn backup off
+set nobackup
+set nowb
+set noswapfile
+
+" permanent undo
+set undodir=~/.vimdid
+set undofile
+
+" turn off sounds
+set noerrorbells
+set novisualbell
+set tm=500
+
+" search
+set incsearch
+set smartcase
+
+" gui
+set termguicolors
+set number
+set colorcolumn=80
+set t_vb=
+
+" do not save any netrw history or bookmarks
+let g:netrw_dirhistmax=0
  
-let g:indent_guides_auto_colors = 0
-autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  guibg=black   ctermbg=239
-autocmd VimEnter,Colorscheme * :hi IndentGuidesEven guibg=darkgrey ctermbg=240
- 
+" ========================================
+" --> plugins 
+" ========================================
 call plug#begin('~/.vim/plugged')
  
 Plug 'Chiel92/vim-autoformat'
+Plug 'aklt/plantuml-syntax'
+Plug 'chriskempson/base16-vim'
 Plug 'christoomey/vim-tmux-navigator'
+Plug 'dense-analysis/ale'
 Plug 'fatih/vim-go'
+Plug 'itchyny/lightline.vim'
+Plug 'jremmen/vim-ripgrep'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim' 
 Plug 'junegunn/vim-easy-align'
 Plug 'mattn/emmet-vim'
 Plug 'mxw/vim-jsx'
 Plug 'nathanaelkane/vim-indent-guides'
+Plug 'nathanaelkane/vim-indent-guides'
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'pangloss/vim-javascript'
+Plug 'scrooloose/nerdcommenter'
 Plug 'scrooloose/nerdtree'
-Plug 'itchyny/lightline.vim'
-Plug 'tpope/vim-surround'
-Plug 'aklt/plantuml-syntax'
 Plug 'scrooloose/vim-slumlord'
+Plug 'tpope/vim-surround'
+Plug 'vimwiki/vimwiki'
 
 " trying these out
 Plug 'tpope/vim-fugitive'
-Plug 'nathanaelkane/vim-indent-guides'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'derekwyatt/vim-scala'
-Plug 'scrooloose/nerdcommenter'
 Plug 'tpope/vim-sensible' 
 Plug 'dag/vim-fish' 
-Plug 'chriskempson/base16-vim'
-Plug 'dense-analysis/ale'
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
-Plug 'vimwiki/vimwiki'
-Plug 'jremmen/vim-ripgrep'
 
 " Initialize plugin system
 call plug#end()
  
-" NERDTree
+" ========================================
+" --> plugins - nerdtree 
+" ========================================
 nnoremap <C-n> :NERDTreeToggle<CR>
 nnoremap <leader>n :NERDTreeFind<CR>
 let NERDTreeShowHidden=1
  
-" Autoformat
-noremap <F3> :Autoformat<CR>
- 
-" cursorline, turning off temporarily, introducing lag
- "set cursorline
-
-" jsx highlighting and indenting for .js files
+" ========================================
+" --> plugins - vim-jsx 
+" ========================================
 let g:jsx_ext_required = 0
 
-" fzf
+" ========================================
+" --> plugins - fzf 
+" ========================================
 nnoremap <c-p> :FZF<cr>
 
-" rg
+" ========================================
+" --> plugins - vim-ripgrep 
+" ========================================
 if executable('rg')
     let g:rg_derive_root='true'
 endif
 nnoremap <leader>z :Rg<SPACE>
 
-" Turn backup off
-set nobackup
-set nowb
-set noswapfile
+" ========================================
+" --> plugins - easy align 
+" ========================================
+xmap ga <Plug>(EasyAlign)
+nmap ga <Plug>(EasyAlign)
 
-" map jk for escape
-:imap jk <Esc>
+" ========================================
+" --> plugins - vim-indent-guides 
+" ========================================
+let g:indent_guides_auto_colors = 0
+autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  guibg=black   ctermbg=239
+autocmd VimEnter,Colorscheme * :hi IndentGuidesEven guibg=darkgrey ctermbg=240
 
-" No annoying sound on errors
-set noerrorbells
-set novisualbell
-set t_vb=
-set tm=500
-
-" Start interactive EasyAlign in visual mode (e.g. vipga)
- xmap ga <Plug>(EasyAlign)
-
-" Start interactive EasyAlign for a motion/text object (e.g. gaip)
- nmap ga <Plug>(EasyAlign)
-
-" <leader><leader> toggles between buffers
-nnoremap <leader><leader> <c-^>
-
-" ,p will paste clipboard into buffer
-" ,c will copy entire buffer into clipboard
-noremap <leader>p :read !xsel --clipboard --output<cr>
-noremap <leader>c :w !xsel -ib<cr><cr>
-
-set colorcolumn=80 " and give me a colored column
-
+" ========================================
+" --> plugins - base16 
+" ========================================
 let base16colorspace=256
 colorscheme base16-gruvbox-dark-soft
-set termguicolors
 
-" Permanent undo
-set undodir=~/.vimdid
-set undofile
-
-" COC
-" Give more space for displaying messages.
-" set cmdheight=2
-
-" Having longer updatetime (default is 4000 ms = 4 s) leads to noticeable
-" delays and poor user experience.
+" ========================================
+" --> plugins - coc 
+" ========================================
 set updatetime=300
 
 " Use tab for trigger completion with characters ahead and navigate.
@@ -156,13 +167,38 @@ function! s:show_documentation()
   endif
 endfunction
 
-" vimwiki change to markdown
+" ========================================
+" --> plugins - ale 
+" ========================================
 let g:vimwiki_list = [{'path': '~/vimwiki/',
                       \ 'syntax': 'markdown', 'ext': '.md'}]
 let g:vimwiki_url_maxsave=0
 let g:vimwiki_global_ext=0
 
+" ========================================
+" --> plugins - ale 
+" ========================================
 let g:ale_fixers = {
 \   'javascript': ['prettier'],
 \   'css': ['prettier'],
 \}
+
+" ========================================
+" --> plugins - autoformat 
+" ========================================
+noremap <F3> :Autoformat<CR>
+
+" ========================================
+" --> key bindings 
+" ========================================
+:imap jk <Esc>
+
+vnoremap J :m '>+1<CR>gv=gv
+vnoremap K :m '<-2<CR>gv=gv
+
+nnoremap <leader><leader> <c-^>
+
+noremap <leader>p :read !xsel --clipboard --output<cr>
+noremap <leader>c :w !xsel -ib<cr><cr>
+
+nnoremap <leader>l :nohl<CR><C-L>

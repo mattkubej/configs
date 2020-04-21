@@ -102,7 +102,7 @@ let g:jsx_ext_required = 0
 " ========================================
 " --> plugins - fzf 
 " ========================================
-nnoremap <c-p> :FZF<cr>
+nnoremap <c-p> :Files<cr>
 
 " ========================================
 " --> plugins - vim-ripgrep 

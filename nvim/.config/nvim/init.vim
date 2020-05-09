@@ -188,6 +188,15 @@ nmap <silent> gy <Plug>(coc-type-definition)
 nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
 
+" Run jest for current project
+command! -nargs=0 Jest :call  CocAction('runCommand', 'jest.projectTest')
+
+" Run jest for current file
+command! -nargs=0 JestCurrent :call  CocAction('runCommand', 'jest.fileTest', ['%'])
+
+" Run jest for current test
+nnoremap <leader>te :call CocAction('runCommand', 'jest.singleTest')<CR>
+
 " ========================================
 " --> plugins - vimwiki 
 " ========================================

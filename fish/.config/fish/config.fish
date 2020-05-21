@@ -43,3 +43,7 @@ status --is-interactive; and pyenv virtualenv-init - | source
 
 # fzf
 set -x FZF_DEFAULT_COMMAND 'fd --type f --hidden --follow --exclude .git'
+
+# deno
+set -x DENO_INSTALL $HOME/.deno
+set -x PATH $PATH $DENO_INSTALL/bin

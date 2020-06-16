@@ -15,6 +15,7 @@ set smartindent
 set cindent
 set nowrap
 set hidden
+set relativenumber
  
 set clipboard=unnamedplus
 set backspace=indent,eol,start

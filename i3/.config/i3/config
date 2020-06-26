@@ -204,6 +204,9 @@ exec --no-startup-id feh --bg-fill --no-xinerama ~/Documents/wallpapers/dots.jpg
 # kick up polybar
 exec_always --no-startup-id killall polybar; polybar main 
 
+# redshift
+exec --no-startup-id redshift-gtk
+
 # Focus the big output
 # bindsym $mod+x focus output HDMI-2
 

@@ -184,7 +184,8 @@ bindsym $mod+r mode "resize"
         #status_command i3status
 #}
 
-for_window [class="^.*"] border pixel 0
+for_window [class="^.*"] border pixel 1
+client.focused #83a598 #32302f #fbf1c7 #83a598 #83a598
 
 gaps inner 10 
 gaps outer 10

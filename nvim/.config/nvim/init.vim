@@ -85,6 +85,7 @@ Plug 'derekwyatt/vim-scala'
 Plug 'tpope/vim-sensible' 
 Plug 'dag/vim-fish' 
 Plug 'lervag/vimtex'
+Plug 'prettier/vim-prettier'
 
 " Initialize plugin system
 call plug#end()
@@ -219,6 +220,7 @@ let g:ale_fixers = {
 " ========================================
 let g:vimtex_compiler_progname = 'nvr'
 let g:vimtex_view_method = 'zathura'
+let g:tex_flavor = 'latex'
 
 " ========================================
 " --> plugins - autoformat 
@@ -235,10 +237,12 @@ vnoremap K :m '<-2<CR>gv=gv
 
 nnoremap <leader><leader> <c-^>
 
-noremap <leader>p :read !xsel --clipboard --output<cr>
-noremap <leader>c :w !xsel -ib<cr><cr>
-
 nnoremap <leader>l :nohl<CR><C-L>
 
 nnoremap <silent> <Leader>+ :vertical resize +5<CR>
 nnoremap <silent> <Leader>- :vertical resize -5<CR>
+
+" consider removing these
+" noremap <leader>p :read !xsel --clipboard --output<cr>
+" noremap <leader>c :w !xsel -ib<cr><cr>
+

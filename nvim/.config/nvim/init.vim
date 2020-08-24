@@ -85,7 +85,6 @@ Plug 'derekwyatt/vim-scala'
 Plug 'tpope/vim-sensible' 
 Plug 'dag/vim-fish' 
 Plug 'lervag/vimtex'
-Plug 'prettier/vim-prettier'
 
 " Initialize plugin system
 call plug#end()
@@ -226,6 +225,14 @@ let g:tex_flavor = 'latex'
 " --> plugins - autoformat 
 " ========================================
 noremap <F3> :Autoformat<CR>
+
+" ========================================
+" --> plugins - coc-prettier 
+" ========================================
+command! -nargs=0 Prettier :CocCommand prettier.formatFile
+nnoremap <leader>p :Prettier<CR>
+vmap <leader>f  <Plug>(coc-format-selected)
+nmap <leader>f  <Plug>(coc-format-selected)
 
 " ========================================
 " --> key bindings 

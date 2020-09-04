@@ -235,6 +235,12 @@ vmap <leader>f  <Plug>(coc-format-selected)
 nmap <leader>f  <Plug>(coc-format-selected)
 
 " ========================================
+" --> merlin
+" ========================================
+let g:opamshare = substitute(system('opam config var share'),'\n$','','''')
+execute "set rtp+=" . g:opamshare . "/merlin/vim"
+
+" ========================================
 " --> key bindings
 " ========================================
 :imap jk <Esc>

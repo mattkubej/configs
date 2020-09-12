@@ -7,7 +7,7 @@ let mapleader = "\<Space>"
 set nocompatible
 filetype plugin on
 syntax on
- 
+
 set tabstop=2 shiftwidth=2
 set expandtab
 set autoindent
@@ -15,7 +15,8 @@ set smartindent
 set cindent
 set nowrap
 set hidden
- 
+set relativenumber
+
 set clipboard=unnamedplus
 set backspace=indent,eol,start
 set laststatus=2
@@ -48,12 +49,12 @@ set t_vb=
 
 " do not save any netrw history or bookmarks
 let g:netrw_dirhistmax=0
- 
+
 " ========================================
-" --> plugins 
+" --> plugins
 " ========================================
 call plug#begin('~/.vim/plugged')
- 
+
 Plug 'Chiel92/vim-autoformat'
 Plug 'aklt/plantuml-syntax'
 Plug 'chriskempson/base16-vim'
@@ -63,7 +64,7 @@ Plug 'fatih/vim-go'
 Plug 'itchyny/lightline.vim'
 Plug 'jremmen/vim-ripgrep'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
-Plug 'junegunn/fzf.vim' 
+Plug 'junegunn/fzf.vim'
 Plug 'junegunn/vim-easy-align'
 Plug 'mattn/emmet-vim'
 Plug 'mxw/vim-jsx'
@@ -81,32 +82,32 @@ Plug 'vimwiki/vimwiki'
 Plug 'tpope/vim-fugitive'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'derekwyatt/vim-scala'
-Plug 'tpope/vim-sensible' 
-Plug 'dag/vim-fish' 
+Plug 'tpope/vim-sensible'
+Plug 'dag/vim-fish'
 Plug 'lervag/vimtex'
 
 " Initialize plugin system
 call plug#end()
- 
+
 " ========================================
-" --> plugins - nerdtree 
+" --> plugins - nerdtree
 " ========================================
 nnoremap <C-n> :NERDTreeToggle<CR>
 nnoremap <leader>n :NERDTreeFind<CR>
 let NERDTreeShowHidden=1
- 
+
 " ========================================
-" --> plugins - vim-jsx 
+" --> plugins - vim-jsx
 " ========================================
 let g:jsx_ext_required = 0
 
 " ========================================
-" --> plugins - fzf 
+" --> plugins - fzf
 " ========================================
 nnoremap <c-p> :Files<cr>
 
 " ========================================
-" --> plugins - vim-ripgrep 
+" --> plugins - vim-ripgrep
 " ========================================
 if executable('rg')
     let g:rg_derive_root='true'
@@ -129,26 +130,26 @@ endfunction
 command! -nargs=* -bang RG call RipgrepFzf(<q-args>, <bang>0)
 
 " ========================================
-" --> plugins - easy align 
+" --> plugins - easy align
 " ========================================
 xmap ga <Plug>(EasyAlign)
 nmap ga <Plug>(EasyAlign)
 
 " ========================================
-" --> plugins - vim-indent-guides 
+" --> plugins - vim-indent-guides
 " ========================================
 let g:indent_guides_auto_colors = 0
 autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  guibg=black   ctermbg=239
 autocmd VimEnter,Colorscheme * :hi IndentGuidesEven guibg=darkgrey ctermbg=240
 
 " ========================================
-" --> plugins - base16 
+" --> plugins - base16
 " ========================================
 let base16colorspace=256
 colorscheme base16-gruvbox-dark-soft
 
 " ========================================
-" --> plugins - coc 
+" --> plugins - coc
 " ========================================
 set updatetime=300
 
@@ -198,7 +199,7 @@ command! -nargs=0 JestCurrent :call  CocAction('runCommand', 'jest.fileTest', ['
 nnoremap <leader>te :call CocAction('runCommand', 'jest.singleTest')<CR>
 
 " ========================================
-" --> plugins - vimwiki 
+" --> plugins - vimwiki
 " ========================================
 let g:vimwiki_list = [{'path': '~/vimwiki/',
                       \ 'syntax': 'markdown', 'ext': '.md'}]
@@ -206,7 +207,7 @@ let g:vimwiki_url_maxsave=0
 let g:vimwiki_global_ext=0
 
 " ========================================
-" --> plugins - ale 
+" --> plugins - ale
 " ========================================
 let g:ale_fixers = {
 \   'javascript': ['prettier'],
@@ -214,19 +215,33 @@ let g:ale_fixers = {
 \}
 
 " ========================================
-" --> plugins - vimtex 
+" --> plugins - vimtex
 " ========================================
 let g:vimtex_compiler_progname = 'nvr'
 let g:vimtex_view_method = 'zathura'
 let g:tex_flavor = 'latex'
 
 " ========================================
-" --> plugins - autoformat 
+" --> plugins - autoformat
 " ========================================
 noremap <F3> :Autoformat<CR>
 
 " ========================================
-" --> key bindings 
+" --> plugins - coc-prettier
+" ========================================
+command! -nargs=0 Prettier :CocCommand prettier.formatFile
+nnoremap <leader>p :Prettier<CR>
+vmap <leader>f  <Plug>(coc-format-selected)
+nmap <leader>f  <Plug>(coc-format-selected)
+
+" ========================================
+" --> merlin
+" ========================================
+let g:opamshare = substitute(system('opam config var share'),'\n$','','''')
+execute "set rtp+=" . g:opamshare . "/merlin/vim"
+
+" ========================================
+" --> key bindings
 " ========================================
 :imap jk <Esc>
 
@@ -235,10 +250,21 @@ vnoremap K :m '<-2<CR>gv=gv
 
 nnoremap <leader><leader> <c-^>
 
-noremap <leader>p :read !xsel --clipboard --output<cr>
-noremap <leader>c :w !xsel -ib<cr><cr>
-
 nnoremap <leader>l :nohl<CR><C-L>
 
 nnoremap <silent> <Leader>+ :vertical resize +5<CR>
 nnoremap <silent> <Leader>- :vertical resize -5<CR>
+
+" ========================================
+" --> Remove trailing whitespace on save
+" ========================================
+fun! TrimWhitespace()
+    let l:save = winsaveview()
+    keeppatterns %s/\s\+$//e
+    call winrestview(l:save)
+endfun
+
+augroup TRIM_WS
+    autocmd!
+    autocmd BufWritePre * :call TrimWhitespace()
+augroup END

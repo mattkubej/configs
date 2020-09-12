@@ -15,11 +15,6 @@
           "directory": "/tmp/ccls"
         }
       }
-    },
-    "ocaml-lsp": {
-      "command": "opam",
-      "args": ["config", "exec", "--", "ocamllsp"],
-      "filetypes": ["ocaml", "reason"]
     }
   }
 }

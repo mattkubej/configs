@@ -70,7 +70,6 @@ Plug 'mattn/emmet-vim'
 Plug 'mxw/vim-jsx'
 Plug 'nathanaelkane/vim-indent-guides'
 Plug 'nathanaelkane/vim-indent-guides'
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'pangloss/vim-javascript'
 Plug 'scrooloose/nerdcommenter'
 Plug 'scrooloose/nerdtree'
@@ -85,6 +84,9 @@ Plug 'derekwyatt/vim-scala'
 Plug 'tpope/vim-sensible'
 Plug 'dag/vim-fish'
 Plug 'lervag/vimtex'
+Plug 'neovim/nvim-lspconfig'
+Plug 'nvim-lua/completion-nvim'
+Plug 'nvim-lua/diagnostic-nvim'
 
 " Initialize plugin system
 call plug#end()
@@ -149,54 +151,26 @@ let base16colorspace=256
 colorscheme base16-gruvbox-dark-soft
 
 " ========================================
-" --> plugins - coc
+" --> plugins - lsp
 " ========================================
-set updatetime=300
+source $HOME/.config/nvim/config/lsp.vim
 
-" Use tab for trigger completion with characters ahead and navigate.
-" NOTE: Use command ':verbose imap <tab>' to make sure tab is not mapped by
-" other plugin before putting this into your config.
-inoremap <silent><expr> <TAB>
-      \ pumvisible() ? "\<C-n>" :
-      \ <SID>check_back_space() ? "\<TAB>" :
-      \ coc#refresh()
-inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
-
-function! s:check_back_space() abort
-  let col = col('.') - 1
-  return !col || getline('.')[col - 1]  =~# '\s'
-endfunction
-
-"complete_info() is an unknown function
-inoremap <expr> <cr> complete_info()["selected"] != "-1" ? "\<C-y>" : "\<C-g>u\<CR>"
-
-" Use <c-space> to trigger completion.
-inoremap <silent><expr> <c-space> coc#refresh()
-
-" Use K to show documentation in preview window.
-nnoremap <silent> K :call <SID>show_documentation()<CR>
-
-function! s:show_documentation()
-  if (index(['vim','help'], &filetype) >= 0)
-    execute 'h '.expand('<cword>')
-  else
-    call CocAction('doHover')
-  endif
-endfunction
-
-nmap <silent> gd <Plug>(coc-definition)
-nmap <silent> gy <Plug>(coc-type-definition)
-nmap <silent> gi <Plug>(coc-implementation)
-nmap <silent> gr <Plug>(coc-references)
-
+" ========================================
+" TODO
+" ========================================
 " Run jest for current project
-command! -nargs=0 Jest :call  CocAction('runCommand', 'jest.projectTest')
+"command! -nargs=0 Jest :call  CocAction('runCommand', 'jest.projectTest')
 
 " Run jest for current file
-command! -nargs=0 JestCurrent :call  CocAction('runCommand', 'jest.fileTest', ['%'])
+"command! -nargs=0 JestCurrent :call  CocAction('runCommand', 'jest.fileTest', ['%'])
 
 " Run jest for current test
-nnoremap <leader>te :call CocAction('runCommand', 'jest.singleTest')<CR>
+"nnoremap <leader>te :call CocAction('runCommand', 'jest.singleTest')<CR>
+
+"command! -nargs=0 Prettier :CocCommand prettier.formatFile
+"nnoremap <leader>p :Prettier<CR>
+"vmap <leader>f  <Plug>(coc-format-selected)
+"nmap <leader>f  <Plug>(coc-format-selected)
 
 " ========================================
 " --> plugins - vimwiki
@@ -225,14 +199,6 @@ let g:tex_flavor = 'latex'
 " --> plugins - autoformat
 " ========================================
 noremap <F3> :Autoformat<CR>
-
-" ========================================
-" --> plugins - coc-prettier
-" ========================================
-command! -nargs=0 Prettier :CocCommand prettier.formatFile
-nnoremap <leader>p :Prettier<CR>
-vmap <leader>f  <Plug>(coc-format-selected)
-nmap <leader>f  <Plug>(coc-format-selected)
 
 " ========================================
 " --> merlin

@@ -87,6 +87,7 @@ Plug 'lervag/vimtex'
 Plug 'neovim/nvim-lspconfig'
 Plug 'nvim-lua/completion-nvim'
 Plug 'nvim-lua/diagnostic-nvim'
+Plug 'nvim-treesitter/nvim-treesitter'
 
 " Initialize plugin system
 call plug#end()
@@ -154,6 +155,11 @@ colorscheme base16-gruvbox-dark-soft
 " --> plugins - lsp
 " ========================================
 source $HOME/.config/nvim/config/lsp.vim
+
+" ========================================
+" --> plugins - treesitter
+" ========================================
+source $HOME/.config/nvim/config/treesitter.vim
 
 " ========================================
 " TODO

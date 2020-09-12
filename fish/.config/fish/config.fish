@@ -9,6 +9,7 @@ function fish_user_key_bindings
     for mode in insert default visual
         bind -M $mode \cf forward-char
     end
+    fzf_key_bindings
 end
 
 # startup fish in tmux
@@ -36,10 +37,30 @@ set -x PATH $PATH /usr/local/go/bin $GOPATH/bin
 set -x PATH $PATH $HOME/.npm-global/bin
 
 # pyenv
-set -x PYENV_ROOT $HOME/.pyenv
-set -x PATH $PATH $PYENV_ROOT/bin
-status --is-interactive; and pyenv init - | source
-status --is-interactive; and pyenv virtualenv-init - | source
+#set -x PYENV_ROOT $HOME/.pyenv
+#set -x PATH $PATH $PYENV_ROOT/bin
+#status --is-interactive; and pyenv init - | source
+#status --is-interactive; and pyenv virtualenv-init - | source
 
 # fzf
 set -x FZF_DEFAULT_COMMAND 'fd --type f --hidden --follow --exclude .git'
+
+# hack
+set -x LD_PRELOAD /usr/lib/x86_64-linux-gnu/libgtk3-nocsd.so.0
+
+# deno
+set -x DENO_INSTALL $HOME/.deno
+set -x PATH $PATH $DENO_INSTALL/bin
+
+alias fd=fdfind
+abbr -a vim 'nvim'
+
+# homebrew
+set -gx HOMEBREW_PREFIX "/home/linuxbrew/.linuxbrew";
+set -gx HOMEBREW_CELLAR "/home/linuxbrew/.linuxbrew/Cellar";
+set -gx HOMEBREW_REPOSITORY "/home/linuxbrew/.linuxbrew/Homebrew";
+set -q PATH; or set PATH ''; set -gx PATH "/home/linuxbrew/.linuxbrew/bin" "/home/linuxbrew/.linuxbrew/sbin" $PATH;
+set -q MANPATH; or set MANPATH ''; set -gx MANPATH "/home/linuxbrew/.linuxbrew/share/man" $MANPATH;
+set -q INFOPATH; or set INFOPATH ''; set -gx INFOPATH "/home/linuxbrew/.linuxbrew/share/info" $INFOPATH;
+
+starship init fish | source

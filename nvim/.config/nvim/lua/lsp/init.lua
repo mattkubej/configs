@@ -17,6 +17,23 @@ local on_attach = function(client, bufnr)
   vim.fn.nvim_set_keymap("n", "gW", "<cmd>lua vim.lsp.buf.workspace_symbol()<CR>", {noremap = true, silent = true})
 end
 
+nvim_lsp.clangd.setup{
+  cmd = { "clangd-9", "--background-index" },
+  on_attach = on_attach,
+}
+
+nvim_lsp.gopls.setup{
+  on_attach = on_attach,
+}
+
+nvim_lsp.html.setup{
+  on_attach = on_attach,
+}
+
+nvim_lsp.ocamllsp.setup{
+  on_attach = on_attach,
+}
+
 nvim_lsp.tsserver.setup{
   on_attach = on_attach,
 }

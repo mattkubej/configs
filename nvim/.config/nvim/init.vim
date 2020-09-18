@@ -55,20 +55,15 @@ let g:netrw_dirhistmax=0
 " ========================================
 call plug#begin('~/.vim/plugged')
 
-Plug 'Chiel92/vim-autoformat'
 Plug 'aklt/plantuml-syntax'
 Plug 'chriskempson/base16-vim'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'dense-analysis/ale'
 Plug 'fatih/vim-go'
 Plug 'itchyny/lightline.vim'
-Plug 'jremmen/vim-ripgrep'
-Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
-Plug 'junegunn/fzf.vim'
 Plug 'junegunn/vim-easy-align'
 Plug 'mattn/emmet-vim'
 Plug 'mxw/vim-jsx'
-Plug 'nathanaelkane/vim-indent-guides'
 Plug 'nathanaelkane/vim-indent-guides'
 Plug 'pangloss/vim-javascript'
 Plug 'scrooloose/nerdcommenter'
@@ -76,6 +71,9 @@ Plug 'scrooloose/nerdtree'
 Plug 'scrooloose/vim-slumlord'
 Plug 'tpope/vim-surround'
 Plug 'vimwiki/vimwiki'
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'junegunn/fzf.vim'
+Plug 'jremmen/vim-ripgrep'
 
 " trying these out
 Plug 'tpope/vim-fugitive'
@@ -88,6 +86,9 @@ Plug 'neovim/nvim-lspconfig'
 Plug 'nvim-lua/completion-nvim'
 Plug 'nvim-lua/diagnostic-nvim'
 Plug 'nvim-treesitter/nvim-treesitter'
+Plug 'nvim-lua/popup.nvim'
+Plug 'nvim-lua/plenary.nvim'
+Plug 'nvim-lua/telescope.nvim'
 
 " Initialize plugin system
 call plug#end()
@@ -103,11 +104,6 @@ let NERDTreeShowHidden=1
 " --> plugins - vim-jsx
 " ========================================
 let g:jsx_ext_required = 0
-
-" ========================================
-" --> plugins - fzf
-" ========================================
-nnoremap <c-p> :Files<cr>
 
 " ========================================
 " --> plugins - vim-ripgrep
@@ -162,6 +158,11 @@ source $HOME/.config/nvim/config/lsp.vim
 source $HOME/.config/nvim/config/treesitter.vim
 
 " ========================================
+" --> plugins - telescope
+" ========================================
+source $HOME/.config/nvim/config/telescope.vim
+
+" ========================================
 " TODO
 " ========================================
 " Run jest for current project
@@ -200,11 +201,6 @@ let g:ale_fixers = {
 let g:vimtex_compiler_progname = 'nvr'
 let g:vimtex_view_method = 'zathura'
 let g:tex_flavor = 'latex'
-
-" ========================================
-" --> plugins - autoformat
-" ========================================
-noremap <F3> :Autoformat<CR>
 
 " ========================================
 " --> merlin

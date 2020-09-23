@@ -1,1 +1,2 @@
-lua require("treesitter")
+" end_col bug is too annoying
+" lua require("treesitter")

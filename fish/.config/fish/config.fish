@@ -28,6 +28,9 @@ else
   abbr -a lll 'ls -la'
 end
 
+# local scripts
+set -x PATH $PATH $HOME/bin
+
 # golang
 set -x GOPATH $HOME/go
 set -x PATH $PATH /usr/local/go/bin $GOPATH/bin

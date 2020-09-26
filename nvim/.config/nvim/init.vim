@@ -164,23 +164,6 @@ source $HOME/.config/nvim/config/treesitter.vim
 source $HOME/.config/nvim/config/telescope.vim
 
 " ========================================
-" TODO
-" ========================================
-" Run jest for current project
-"command! -nargs=0 Jest :call  CocAction('runCommand', 'jest.projectTest')
-
-" Run jest for current file
-"command! -nargs=0 JestCurrent :call  CocAction('runCommand', 'jest.fileTest', ['%'])
-
-" Run jest for current test
-"nnoremap <leader>te :call CocAction('runCommand', 'jest.singleTest')<CR>
-
-"command! -nargs=0 Prettier :CocCommand prettier.formatFile
-"nnoremap <leader>p :Prettier<CR>
-"vmap <leader>f  <Plug>(coc-format-selected)
-"nmap <leader>f  <Plug>(coc-format-selected)
-
-" ========================================
 " --> plugins - vimwiki
 " ========================================
 let g:vimwiki_list = [{'path': '~/vimwiki/',

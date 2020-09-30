@@ -26,8 +26,8 @@ nnoremap <silent> g0    <cmd>lua vim.lsp.buf.document_symbol()<CR>
 nnoremap <silent> gW    <cmd>lua vim.lsp.buf.workspace_symbol()<CR>
 nnoremap <silent> gd    <cmd>lua vim.lsp.buf.declaration()<CR>
 
-" nnoremap <silent> gpd    <cmd>NextDiagnosticCycle<CR>
-" nnoremap <silent> gnd    <cmd>NextDiagnosticCycle<CR>
+nnoremap <silent> gpd    <cmd>NextDiagnosticCycle<CR>
+nnoremap <silent> gnd    <cmd>NextDiagnosticCycle<CR>
 let g:diagnostic_enable_virtual_text = 1
 
 let g:completion_matching_strategy_list = ['exact', 'substring', 'fuzzy']

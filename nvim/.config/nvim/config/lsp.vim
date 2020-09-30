@@ -10,7 +10,7 @@ set updatetime=1000
 " Set completeopt to have a better completion experience
 set completeopt=menuone,noinsert,noselect
 
-" Avoid showing message extra message when using completion
+" Avoid showing extra message when using completion
 set shortmess+=c
 
 " Prevent column from jumping when errors display

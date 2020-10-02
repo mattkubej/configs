@@ -74,6 +74,7 @@ Plug 'vimwiki/vimwiki'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 Plug 'jremmen/vim-ripgrep'
+Plug 'kubejm/jest.nvim'
 
 " trying these out
 Plug 'tpope/vim-fugitive'

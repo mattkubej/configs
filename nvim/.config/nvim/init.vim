@@ -90,6 +90,7 @@ Plug 'nvim-treesitter/nvim-treesitter'
 Plug 'nvim-lua/popup.nvim'
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-lua/telescope.nvim'
+Plug 'tjdevries/nlua.nvim'
 
 " Initialize plugin system
 call plug#end()

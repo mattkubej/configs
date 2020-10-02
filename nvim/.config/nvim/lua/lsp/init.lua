@@ -1,6 +1,7 @@
 local completion = require('completion')
 local diagnostic = require('diagnostic')
 local nvim_lsp = require('nvim_lsp')
+local nlua = require('nlua.lsp.nvim')
 
 local on_attach = function(client, bufnr)
   completion.on_attach(client, bufnr)
@@ -24,10 +25,10 @@ nvim_lsp.ocamllsp.setup{
   on_attach = on_attach,
 }
 
-nvim_lsp.sumneko_lua.setup{
-  on_attach = on_attach,
-}
-
 nvim_lsp.tsserver.setup{
   on_attach = on_attach,
 }
+
+nlua.setup(nvim_lsp, {
+  on_attach = on_attach,
+})

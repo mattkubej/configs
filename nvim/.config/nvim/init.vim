@@ -93,9 +93,7 @@ Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-lua/telescope.nvim'
 Plug 'tjdevries/nlua.nvim'
 
-Plug 'yuezk/vim-js'
-Plug 'HerringtonDarkholme/yats.vim'
-Plug 'maxmellon/vim-jsx-pretty'
+Plug 'sheerun/vim-polyglot'
 
 " Initialize plugin system
 call plug#end()

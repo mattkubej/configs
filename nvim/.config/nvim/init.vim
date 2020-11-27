@@ -55,28 +55,25 @@ let g:netrw_dirhistmax=0
 " ========================================
 call plug#begin('~/.vim/plugged')
 
-Plug 'Chiel92/vim-autoformat'
 Plug 'aklt/plantuml-syntax'
 Plug 'chriskempson/base16-vim'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'dense-analysis/ale'
 Plug 'fatih/vim-go'
 Plug 'itchyny/lightline.vim'
-Plug 'jremmen/vim-ripgrep'
-Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
-Plug 'junegunn/fzf.vim'
 Plug 'junegunn/vim-easy-align'
 Plug 'mattn/emmet-vim'
-Plug 'mxw/vim-jsx'
 Plug 'nathanaelkane/vim-indent-guides'
-Plug 'nathanaelkane/vim-indent-guides'
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'pangloss/vim-javascript'
 Plug 'scrooloose/nerdcommenter'
 Plug 'scrooloose/nerdtree'
 Plug 'scrooloose/vim-slumlord'
 Plug 'tpope/vim-surround'
 Plug 'vimwiki/vimwiki'
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'junegunn/fzf.vim'
+Plug 'jremmen/vim-ripgrep'
+Plug 'kubejm/jest.nvim'
 
 " trying these out
 Plug 'tpope/vim-fugitive'
@@ -85,6 +82,21 @@ Plug 'derekwyatt/vim-scala'
 Plug 'tpope/vim-sensible'
 Plug 'dag/vim-fish'
 Plug 'lervag/vimtex'
+Plug 'prettier/vim-prettier'
+Plug 'neovim/nvim-lspconfig'
+Plug 'nvim-lua/completion-nvim'
+Plug 'nvim-lua/diagnostic-nvim'
+" Plug 'nvim-treesitter/nvim-treesitter'
+Plug 'nvim-lua/popup.nvim'
+Plug 'nvim-lua/plenary.nvim'
+Plug 'nvim-lua/telescope.nvim'
+Plug 'tjdevries/nlua.nvim'
+Plug 'junegunn/gv.vim'
+
+" Plug 'sheerun/vim-polyglot'
+Plug 'yuezk/vim-js'
+Plug 'HerringtonDarkholme/yats.vim'
+Plug 'maxmellon/vim-jsx-pretty'
 
 " Initialize plugin system
 call plug#end()
@@ -95,16 +107,6 @@ call plug#end()
 nnoremap <C-n> :NERDTreeToggle<CR>
 nnoremap <leader>n :NERDTreeFind<CR>
 let NERDTreeShowHidden=1
-
-" ========================================
-" --> plugins - vim-jsx
-" ========================================
-let g:jsx_ext_required = 0
-
-" ========================================
-" --> plugins - fzf
-" ========================================
-nnoremap <c-p> :Files<cr>
 
 " ========================================
 " --> plugins - vim-ripgrep
@@ -149,54 +151,19 @@ let base16colorspace=256
 colorscheme base16-gruvbox-dark-soft
 
 " ========================================
-" --> plugins - coc
+" --> plugins - lsp
 " ========================================
-set updatetime=300
+source $HOME/.config/nvim/config/lsp.vim
 
-" Use tab for trigger completion with characters ahead and navigate.
-" NOTE: Use command ':verbose imap <tab>' to make sure tab is not mapped by
-" other plugin before putting this into your config.
-inoremap <silent><expr> <TAB>
-      \ pumvisible() ? "\<C-n>" :
-      \ <SID>check_back_space() ? "\<TAB>" :
-      \ coc#refresh()
-inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
+" ========================================
+" --> plugins - treesitter
+" ========================================
+" source $HOME/.config/nvim/config/treesitter.vim
 
-function! s:check_back_space() abort
-  let col = col('.') - 1
-  return !col || getline('.')[col - 1]  =~# '\s'
-endfunction
-
-"complete_info() is an unknown function
-inoremap <expr> <cr> complete_info()["selected"] != "-1" ? "\<C-y>" : "\<C-g>u\<CR>"
-
-" Use <c-space> to trigger completion.
-inoremap <silent><expr> <c-space> coc#refresh()
-
-" Use K to show documentation in preview window.
-nnoremap <silent> K :call <SID>show_documentation()<CR>
-
-function! s:show_documentation()
-  if (index(['vim','help'], &filetype) >= 0)
-    execute 'h '.expand('<cword>')
-  else
-    call CocAction('doHover')
-  endif
-endfunction
-
-nmap <silent> gd <Plug>(coc-definition)
-nmap <silent> gy <Plug>(coc-type-definition)
-nmap <silent> gi <Plug>(coc-implementation)
-nmap <silent> gr <Plug>(coc-references)
-
-" Run jest for current project
-command! -nargs=0 Jest :call  CocAction('runCommand', 'jest.projectTest')
-
-" Run jest for current file
-command! -nargs=0 JestCurrent :call  CocAction('runCommand', 'jest.fileTest', ['%'])
-
-" Run jest for current test
-nnoremap <leader>te :call CocAction('runCommand', 'jest.singleTest')<CR>
+" ========================================
+" --> plugins - telescope
+" ========================================
+source $HOME/.config/nvim/config/telescope.vim
 
 " ========================================
 " --> plugins - vimwiki
@@ -220,19 +187,6 @@ let g:ale_fixers = {
 let g:vimtex_compiler_progname = 'nvr'
 let g:vimtex_view_method = 'zathura'
 let g:tex_flavor = 'latex'
-
-" ========================================
-" --> plugins - autoformat
-" ========================================
-noremap <F3> :Autoformat<CR>
-
-" ========================================
-" --> plugins - coc-prettier
-" ========================================
-command! -nargs=0 Prettier :CocCommand prettier.formatFile
-nnoremap <leader>p :Prettier<CR>
-vmap <leader>f  <Plug>(coc-format-selected)
-nmap <leader>f  <Plug>(coc-format-selected)
 
 " ========================================
 " --> key bindings

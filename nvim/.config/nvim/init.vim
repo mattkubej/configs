@@ -191,8 +191,10 @@ let g:tex_flavor = 'latex'
 " ========================================
 " --> merlin
 " ========================================
-let g:opamshare = substitute(system('opam config var share'),'\n$','','''')
-execute "set rtp+=" . g:opamshare . "/merlin/vim"
+if executable('opam')
+  let g:opamshare = substitute(system('opam config var share'),'\n$','','''')
+  execute "set rtp+=" . g:opamshare . "/merlin/vim"
+endif
 
 " ========================================
 " --> key bindings

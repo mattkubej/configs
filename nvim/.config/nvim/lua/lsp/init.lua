@@ -1,11 +1,9 @@
 local completion = require('completion')
-local diagnostic = require('diagnostic')
 local lsp = require('lspconfig')
 local nlua = require('nlua.lsp.nvim')
 
 local on_attach = function(client, bufnr)
   completion.on_attach(client, bufnr)
-  diagnostic.on_attach(client, bufnr)
 end
 
 lsp.clangd.setup{

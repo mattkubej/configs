@@ -40,6 +40,8 @@ set -x PATH $PATH $PYENV_ROOT/bin
 status --is-interactive; and pyenv init - | source
 status --is-interactive; and pyenv virtualenv-init - | source
 
+alias fd=fdfind
+
 # fzf
 set -x FZF_DEFAULT_COMMAND 'fd --type f --hidden --follow --exclude .git'
 

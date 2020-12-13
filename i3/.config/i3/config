@@ -191,18 +191,20 @@ gaps inner 10
 gaps outer 10
 
 # startup compton to combat screen tearing
-exec --no-startup-id compton --config ~/.config/compton.conf -b
+# exec --no-startup-id compton --config ~/.config/compton.conf -b
 
 # keyboard refresh rate
 exec_always --no-startup-id xset r rate 300 50
 
 # monitor setup
-exec --no-startup-id xrandr \
-      --output DP-2 --primary \
-      --output DP-4 --right-of DP-2
+#exec --no-startup-id xrandr \
+       #--output DVI-D-0 --auto --primary \
+       #--output DP-3 --auto --left-of DVI-D-0 \
+       #--output DP-5 --auto --right-of DVI-D-0
 
-# wallpaper
-exec --no-startup-id feh --bg-tile ~/Pictures/wallpapers/ghost-tile.png
+# multiscreen wallpaper
+# exec --no-startup-id feh --bg-fill --no-xinerama ~/Documents/wallpapers/dots.jpg
+exec --no-startup-id feh --bg-fill --no-xinerama ~/Pictures/wallpapers/trees.jpeg
 
 # kick up polybar
 exec_always --no-startup-id killall polybar; polybar main
@@ -217,8 +219,8 @@ exec rclone mount --vfs-cache-mode writes --daemon gdrive: ~/gdrive
 # bindsym $mod+x focus output HDMI-2
 
 # default stereo and headphones
-exec pactl set-default-source alsa_input.usb-Focusrite_Scarlett_2i2_USB_Y8CKP1321D6E9A-00.analog-stereo
-exec pactl set-default-sink alsa_output.usb-Focusrite_Scarlett_2i2_USB_Y8CKP1321D6E9A-00.analog-stereo
+# exec pactl set-default-source 'alsa_input.usb-Samson_Technologies_Samson_Meteor_Mic-00.analog-stereo'
+# exec pactl set-default-sink 'alsa_output.pci-0000_00_1f.3.analog-stereo'
 
 # Make the currently focused window a scratchpad
 bindsym $mod+Shift+minus move scratchpad

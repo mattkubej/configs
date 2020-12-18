@@ -2,12 +2,12 @@ local completion = require('completion')
 local lsp = require('lspconfig')
 local nlua = require('nlua.lsp.nvim')
 
-local on_attach = function(client, bufnr)
-  completion.on_attach(client, bufnr)
+local on_attach = function(client)
+  completion.on_attach(client)
 end
 
 lsp.clangd.setup{
-  cmd = { "clangd-9", "--background-index" },
+  cmd = { "clangd-11", "--background-index" },
   on_attach = on_attach,
 }
 

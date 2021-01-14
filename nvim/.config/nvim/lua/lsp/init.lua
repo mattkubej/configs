@@ -1,13 +1,18 @@
 local completion = require('completion')
 local lsp = require('lspconfig')
-local nlua = require('nlua.lsp.nvim')
 
 local on_attach = function(client, bufnr)
   completion.on_attach(client, bufnr)
 end
 
 lsp.clangd.setup{
-  cmd = { "clangd-9", "--background-index" },
+  cmd = {
+    "clangd-11",
+    "--background-index",
+    "--suggest-missing-includes",
+    "--clang-tidy",
+    "--header-insertion=iwyu",
+  },
   on_attach = on_attach,
 }
 
@@ -26,7 +31,3 @@ lsp.ocamllsp.setup{
 lsp.tsserver.setup{
   on_attach = on_attach,
 }
-
-nlua.setup(lsp, {
-  on_attach = on_attach,
-})

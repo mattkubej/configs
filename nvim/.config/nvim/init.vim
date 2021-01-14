@@ -86,11 +86,10 @@ Plug 'prettier/vim-prettier'
 Plug 'neovim/nvim-lspconfig'
 Plug 'nvim-lua/completion-nvim'
 Plug 'nvim-lua/diagnostic-nvim'
-" Plug 'nvim-treesitter/nvim-treesitter'
+Plug 'nvim-treesitter/nvim-treesitter'
 Plug 'nvim-lua/popup.nvim'
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-lua/telescope.nvim'
-Plug 'tjdevries/nlua.nvim'
 Plug 'junegunn/gv.vim'
 
 " Plug 'sheerun/vim-polyglot'
@@ -158,7 +157,7 @@ source $HOME/.config/nvim/config/lsp.vim
 " ========================================
 " --> plugins - treesitter
 " ========================================
-" source $HOME/.config/nvim/config/treesitter.vim
+source $HOME/.config/nvim/config/treesitter.vim
 
 " ========================================
 " --> plugins - telescope

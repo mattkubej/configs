@@ -1,4 +1,4 @@
-lua require("lsp")
+lua require("mk.lsp")
 
 " Use <Tab> and <S-Tab> to navigate through popup menu
 inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"

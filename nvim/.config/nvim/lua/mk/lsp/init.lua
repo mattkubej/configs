@@ -31,3 +31,15 @@ lsp.ocamllsp.setup{
 lsp.tsserver.setup{
   on_attach = on_attach,
 }
+
+lsp.sumneko_lua.setup{
+  settings = {
+    Lua = {
+      diagnostics = {
+        enable = true,
+        globals = { "vim" },
+      },
+    }
+  },
+  on_attach = on_attach,
+}

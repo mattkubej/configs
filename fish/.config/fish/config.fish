@@ -62,6 +62,10 @@ set -q INFOPATH; or set INFOPATH ''; set -gx INFOPATH "/home/linuxbrew/.linuxbre
 # man
 set -x MANPATH $MANPATH /usr/share/man
 
+# gradle
+set -x GRADLE_HOME /opt/gradle/latest
+set -x PATH $PATH $GRADLE_HOME/bin
+
 # OPAM configuration
 source /home/matt/.opam/opam-init/init.fish > /dev/null 2> /dev/null or true
 

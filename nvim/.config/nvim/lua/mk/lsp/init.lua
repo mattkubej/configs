@@ -28,6 +28,10 @@ lsp.ocamllsp.setup{
   on_attach = on_attach,
 }
 
+lsp.svelte.setup{
+  on_attach = on_attach,
+}
+
 lsp.tsserver.setup{
   on_attach = on_attach,
 }

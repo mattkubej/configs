@@ -55,47 +55,43 @@ let g:netrw_dirhistmax=0
 " ========================================
 call plug#begin('~/.vim/plugged')
 
+Plug 'HerringtonDarkholme/yats.vim'
 Plug 'aklt/plantuml-syntax'
 Plug 'chriskempson/base16-vim'
 Plug 'christoomey/vim-tmux-navigator'
+Plug 'dag/vim-fish'
 Plug 'dense-analysis/ale'
+Plug 'derekwyatt/vim-scala'
+Plug 'editorconfig/editorconfig-vim'
 Plug 'fatih/vim-go'
 Plug 'itchyny/lightline.vim'
-Plug 'junegunn/vim-easy-align'
-Plug 'mattn/emmet-vim'
-Plug 'nathanaelkane/vim-indent-guides'
-Plug 'pangloss/vim-javascript'
-Plug 'scrooloose/nerdcommenter'
-Plug 'scrooloose/nerdtree'
-Plug 'scrooloose/vim-slumlord'
-Plug 'tpope/vim-surround'
-Plug 'vimwiki/vimwiki'
+Plug 'jremmen/vim-ripgrep'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
-Plug 'jremmen/vim-ripgrep'
+Plug 'junegunn/gv.vim'
+Plug 'junegunn/vim-easy-align'
 Plug 'kubejm/jest.nvim'
-
-" trying these out
-Plug 'tpope/vim-fugitive'
-Plug 'editorconfig/editorconfig-vim'
-Plug 'derekwyatt/vim-scala'
-Plug 'tpope/vim-sensible'
-Plug 'dag/vim-fish'
 Plug 'lervag/vimtex'
-Plug 'prettier/vim-prettier'
+Plug 'mattn/emmet-vim'
+Plug 'maxmellon/vim-jsx-pretty'
+Plug 'nathanaelkane/vim-indent-guides'
 Plug 'neovim/nvim-lspconfig'
 Plug 'nvim-lua/completion-nvim'
 Plug 'nvim-lua/diagnostic-nvim'
-Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
-Plug 'nvim-lua/popup.nvim'
 Plug 'nvim-lua/plenary.nvim'
+Plug 'nvim-lua/popup.nvim'
 Plug 'nvim-lua/telescope.nvim'
-Plug 'junegunn/gv.vim'
-
-" Plug 'sheerun/vim-polyglot'
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+Plug 'pangloss/vim-javascript'
+Plug 'prettier/vim-prettier'
+Plug 'scrooloose/nerdcommenter'
+Plug 'scrooloose/nerdtree'
+Plug 'scrooloose/vim-slumlord'
+Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-sensible'
+Plug 'tpope/vim-surround'
+Plug 'vimwiki/vimwiki'
 Plug 'yuezk/vim-js'
-Plug 'HerringtonDarkholme/yats.vim'
-Plug 'maxmellon/vim-jsx-pretty'
 
 " Initialize plugin system
 call plug#end()

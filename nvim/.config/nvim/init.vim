@@ -24,7 +24,6 @@ Plug 'dense-analysis/ale'
 Plug 'derekwyatt/vim-scala'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'fatih/vim-go'
-Plug 'itchyny/lightline.vim'
 Plug 'jremmen/vim-ripgrep'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
@@ -52,9 +51,15 @@ Plug 'tpope/vim-sensible'
 Plug 'tpope/vim-surround'
 Plug 'vimwiki/vimwiki'
 Plug 'yuezk/vim-js'
+Plug 'hoob3rt/lualine.nvim'
 
 " Initialize plugin system
 call plug#end()
+
+" ========================================
+" --> plugins - lualine
+" ========================================
+lua require('lualine').setup{}
 
 " ========================================
 " --> plugins - nerdtree

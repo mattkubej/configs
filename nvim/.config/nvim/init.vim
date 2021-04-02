@@ -2,6 +2,7 @@
 " --> editor settings
 " ========================================
 let mapleader = "\<Space>"
+inoremap <C-c> <esc>
 
 lua require('mk.globals')
 lua require('mk.options')

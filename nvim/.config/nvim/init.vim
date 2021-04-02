@@ -13,6 +13,19 @@ lua require('mk.options')
 " load plugins
 lua require('mk.plugins')
 
+lua require("mk.treesitter")
+
+" ========================================
+" --> plugins - lsp
+" ========================================
+source $HOME/.config/nvim/config/lsp.vim
+
+" ========================================
+" --> plugins - telescope
+" ========================================
+source $HOME/.config/nvim/config/telescope.vim
+
+
 " do not save any netrw history or bookmarks
 let g:netrw_dirhistmax=0
 
@@ -69,21 +82,6 @@ autocmd VimEnter,Colorscheme * :hi IndentGuidesEven guibg=darkgrey ctermbg=240
 " ========================================
 let base16colorspace=256
 colorscheme base16-gruvbox-dark-soft
-
-" ========================================
-" --> plugins - lsp
-" ========================================
-source $HOME/.config/nvim/config/lsp.vim
-
-" ========================================
-" --> plugins - treesitter
-" ========================================
-source $HOME/.config/nvim/config/treesitter.vim
-
-" ========================================
-" --> plugins - telescope
-" ========================================
-source $HOME/.config/nvim/config/telescope.vim
 
 " ========================================
 " --> plugins - vimwiki

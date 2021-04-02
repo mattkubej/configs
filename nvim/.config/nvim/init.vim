@@ -4,57 +4,17 @@
 let mapleader = "\<Space>"
 inoremap <C-c> <esc>
 
+" global functions must load first
 lua require('mk.globals')
+
+" neovim options
 lua require('mk.options')
+
+" load plugins
+lua require('mk.plugins')
 
 " do not save any netrw history or bookmarks
 let g:netrw_dirhistmax=0
-
-" ========================================
-" --> plugins
-" ========================================
-call plug#begin('~/.vim/plugged')
-
-Plug 'HerringtonDarkholme/yats.vim'
-Plug 'aklt/plantuml-syntax'
-Plug 'chriskempson/base16-vim'
-Plug 'christoomey/vim-tmux-navigator'
-Plug 'dag/vim-fish'
-Plug 'dense-analysis/ale'
-Plug 'derekwyatt/vim-scala'
-Plug 'editorconfig/editorconfig-vim'
-Plug 'fatih/vim-go'
-Plug 'jremmen/vim-ripgrep'
-Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
-Plug 'junegunn/fzf.vim'
-Plug 'junegunn/gv.vim'
-Plug 'junegunn/vim-easy-align'
-Plug 'kubejm/jest.nvim'
-Plug 'lervag/vimtex'
-Plug 'mattn/emmet-vim'
-Plug 'maxmellon/vim-jsx-pretty'
-Plug 'nathanaelkane/vim-indent-guides'
-Plug 'neovim/nvim-lspconfig'
-Plug 'nvim-lua/completion-nvim'
-Plug 'nvim-lua/diagnostic-nvim'
-Plug 'nvim-lua/plenary.nvim'
-Plug 'nvim-lua/popup.nvim'
-Plug 'nvim-lua/telescope.nvim'
-Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
-Plug 'pangloss/vim-javascript'
-Plug 'prettier/vim-prettier'
-Plug 'scrooloose/nerdcommenter'
-Plug 'scrooloose/nerdtree'
-Plug 'scrooloose/vim-slumlord'
-Plug 'tpope/vim-fugitive'
-Plug 'tpope/vim-sensible'
-Plug 'tpope/vim-surround'
-Plug 'vimwiki/vimwiki'
-Plug 'yuezk/vim-js'
-Plug 'hoob3rt/lualine.nvim'
-
-" Initialize plugin system
-call plug#end()
 
 " ========================================
 " --> plugins - lualine

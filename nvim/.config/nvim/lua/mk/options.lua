@@ -30,3 +30,4 @@ opt.termguicolors  = true
 opt.number         = true
 opt.colorcolumn    = 80
 opt.t_vb           = ''
+opt.belloff        = 'all'

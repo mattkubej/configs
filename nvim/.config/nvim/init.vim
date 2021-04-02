@@ -1,51 +1,10 @@
 " ========================================
 " --> editor settings
 " ========================================
-set shell=/bin/bash
 let mapleader = "\<Space>"
 
-set nocompatible
-filetype plugin on
-syntax on
-
-set tabstop=2 shiftwidth=2
-set expandtab
-set autoindent
-set smartindent
-set cindent
-set nowrap
-set hidden
-set relativenumber
-
-set clipboard=unnamedplus
-set backspace=indent,eol,start
-set laststatus=2
-set noshowmode
-set timeout timeoutlen=1000 ttimeoutlen=100
-
-" turn backup off
-set nobackup
-set nowb
-set noswapfile
-
-" permanent undo
-set undodir=~/.vimdid
-set undofile
-
-" turn off sounds
-set noerrorbells
-set novisualbell
-set tm=500
-
-" search
-set incsearch
-set smartcase
-
-" gui
-set termguicolors
-set number
-set colorcolumn=80
-set t_vb=
+lua require('mk.globals')
+lua require('mk.options')
 
 " do not save any netrw history or bookmarks
 let g:netrw_dirhistmax=0

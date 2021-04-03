@@ -52,14 +52,6 @@ let base16colorspace=256
 colorscheme base16-gruvbox-dark-soft
 
 " ========================================
-" --> merlin
-" ========================================
-if executable('opam')
-  let g:opamshare = substitute(system('opam config var share'),'\n$','','''')
-  execute "set rtp+=" . g:opamshare . "/merlin/vim"
-endif
-
-" ========================================
 " --> key bindings
 " ========================================
 vnoremap J :m '>+1<CR>gv=gv

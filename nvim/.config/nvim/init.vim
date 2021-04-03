@@ -1,22 +1,7 @@
-" ========================================
-" --> editor settings
-" ========================================
 let mapleader = "\<Space>"
 
-" global functions must load first
-lua require('mk.globals')
-
-" neovim options
-lua require('mk.options')
-
-" load plugins
-lua require('mk.plugins')
-
-" load lsp
-lua require("mk.lsp")
-
-" load keymaps
-lua require("mk.mappings")
+" personal configuration
+lua require('mk')
 
 " ========================================
 " --> key bindings

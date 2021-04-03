@@ -59,14 +59,6 @@ let base16colorspace=256
 colorscheme base16-gruvbox-dark-soft
 
 " ========================================
-" --> plugins - vimwiki
-" ========================================
-let g:vimwiki_list = [{'path': '~/vimwiki/',
-                      \ 'syntax': 'markdown', 'ext': '.md'}]
-let g:vimwiki_url_maxsave=0
-let g:vimwiki_global_ext=0
-
-" ========================================
 " --> plugins - ale
 " ========================================
 let g:ale_fixers = {

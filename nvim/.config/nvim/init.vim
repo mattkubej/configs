@@ -13,5 +13,6 @@ vnoremap K :m '<-2<CR>gv=gv
 " --> Remove trailing whitespace on save
 " ========================================
 augroup TRIM_WS
-    autocmd! BufWritePre * %s/\s\+$//e
+  autocmd!
+  autocmd BufWritePre * %s/\s\+$//e
 augroup END

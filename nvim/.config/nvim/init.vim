@@ -12,13 +12,6 @@ vnoremap K :m '<-2<CR>gv=gv
 " ========================================
 " --> Remove trailing whitespace on save
 " ========================================
-fun! TrimWhitespace()
-    let l:save = winsaveview()
-    keeppatterns %s/\s\+$//e
-    call winrestview(l:save)
-endfun
-
 augroup TRIM_WS
-    autocmd!
-    autocmd BufWritePre * :call TrimWhitespace()
+    autocmd! BufWritePre * %s/\s\+$//e
 augroup END

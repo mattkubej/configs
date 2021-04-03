@@ -16,6 +16,9 @@ lua require('mk.plugins')
 " load lsp
 lua require("mk.lsp")
 
+" load keymaps
+lua require("mk.mappings")
+
 " do not save any netrw history or bookmarks
 let g:netrw_dirhistmax=0
 
@@ -97,13 +100,6 @@ endif
 " ========================================
 vnoremap J :m '>+1<CR>gv=gv
 vnoremap K :m '<-2<CR>gv=gv
-
-nnoremap <leader><leader> <c-^>
-
-nnoremap <leader>l :nohl<CR><C-L>
-
-nnoremap <silent> <Leader>+ :vertical resize +5<CR>
-nnoremap <silent> <Leader>- :vertical resize -5<CR>
 
 " ========================================
 " --> Remove trailing whitespace on save

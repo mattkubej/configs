@@ -20,11 +20,6 @@ lua require("mk.lsp")
 let g:netrw_dirhistmax=0
 
 " ========================================
-" --> plugins - lualine
-" ========================================
-lua require('lualine').setup{}
-
-" ========================================
 " --> plugins - nerdtree
 " ========================================
 nnoremap <C-n> :NERDTreeToggle<CR>

@@ -43,12 +43,6 @@ endfunction
 command! -nargs=* -bang RG call RipgrepFzf(<q-args>, <bang>0)
 
 " ========================================
-" --> plugins - base16
-" ========================================
-let base16colorspace=256
-colorscheme base16-gruvbox-dark-soft
-
-" ========================================
 " --> key bindings
 " ========================================
 vnoremap J :m '>+1<CR>gv=gv

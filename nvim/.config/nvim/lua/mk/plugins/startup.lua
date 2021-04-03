@@ -16,7 +16,6 @@ return require('packer').startup(function()
   use 'junegunn/gv.vim'
   use 'junegunn/vim-easy-align'
   use 'kubejm/jest.nvim'
-  use 'lervag/vimtex'
   use 'mattn/emmet-vim'
   use 'maxmellon/vim-jsx-pretty'
   use 'neovim/nvim-lspconfig'

@@ -92,6 +92,10 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/matt/.local/share/nvim/site/pack/packer/start/nvim-treesitter"
   },
+  ["packer.nvim"] = {
+    loaded = true,
+    path = "/home/matt/.local/share/nvim/site/pack/packer/start/packer.nvim"
+  },
   ["plantuml-syntax"] = {
     loaded = true,
     path = "/home/matt/.local/share/nvim/site/pack/packer/start/plantuml-syntax"

@@ -14,7 +14,6 @@ lua require('mk.options')
 lua require('mk.plugins')
 
 lua require("mk.lsp")
-lua require("mk.treesitter")
 
 " do not save any netrw history or bookmarks
 let g:netrw_dirhistmax=0

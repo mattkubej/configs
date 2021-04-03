@@ -10,7 +10,6 @@ return require('packer').startup(function()
   use 'derekwyatt/vim-scala'
   use 'editorconfig/editorconfig-vim'
   use 'fatih/vim-go'
-  use 'jremmen/vim-ripgrep'
   use {'junegunn/fzf', dir = '~/.fzf', run = './install --all'}
   use 'junegunn/fzf.vim'
   use 'junegunn/gv.vim'

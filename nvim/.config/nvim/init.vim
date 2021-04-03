@@ -46,12 +46,6 @@ endfunction
 command! -nargs=* -bang RG call RipgrepFzf(<q-args>, <bang>0)
 
 " ========================================
-" --> plugins - easy align
-" ========================================
-xmap ga <Plug>(EasyAlign)
-nmap ga <Plug>(EasyAlign)
-
-" ========================================
 " --> plugins - vim-indent-guides
 " ========================================
 let g:indent_guides_auto_colors = 0

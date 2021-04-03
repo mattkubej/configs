@@ -52,14 +52,6 @@ let base16colorspace=256
 colorscheme base16-gruvbox-dark-soft
 
 " ========================================
-" --> plugins - ale
-" ========================================
-let g:ale_fixers = {
-\   'javascript': ['prettier'],
-\   'css': ['prettier'],
-\}
-
-" ========================================
 " --> plugins - vimtex
 " ========================================
 let g:vimtex_compiler_progname = 'nvr'

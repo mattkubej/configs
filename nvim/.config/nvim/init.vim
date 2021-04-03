@@ -19,9 +19,6 @@ lua require("mk.lsp")
 " load keymaps
 lua require("mk.mappings")
 
-" do not save any netrw history or bookmarks
-let g:netrw_dirhistmax=0
-
 " ========================================
 " --> plugins - vim-ripgrep
 " ========================================

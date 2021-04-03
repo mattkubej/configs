@@ -59,3 +59,5 @@ opt.formatoptions  = opt.formatoptions
                      + 'n'
                      + 'q'
                      + 'r'
+
+vim.g.etrw_dirhistmax = 0 -- do not save any netrw history or bookmarks

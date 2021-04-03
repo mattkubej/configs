@@ -46,13 +46,6 @@ endfunction
 command! -nargs=* -bang RG call RipgrepFzf(<q-args>, <bang>0)
 
 " ========================================
-" --> plugins - vim-indent-guides
-" ========================================
-let g:indent_guides_auto_colors = 0
-autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  guibg=black   ctermbg=239
-autocmd VimEnter,Colorscheme * :hi IndentGuidesEven guibg=darkgrey ctermbg=240
-
-" ========================================
 " --> plugins - base16
 " ========================================
 let base16colorspace=256

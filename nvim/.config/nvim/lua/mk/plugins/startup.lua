@@ -19,7 +19,6 @@ return require('packer').startup(function()
   use 'lervag/vimtex'
   use 'mattn/emmet-vim'
   use 'maxmellon/vim-jsx-pretty'
-  use 'nathanaelkane/vim-indent-guides'
   use 'neovim/nvim-lspconfig'
   use 'nvim-lua/completion-nvim'
   use 'nvim-lua/diagnostic-nvim'

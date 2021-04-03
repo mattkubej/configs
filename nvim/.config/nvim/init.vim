@@ -15,8 +15,6 @@ lua require('mk.plugins')
 
 lua require("mk.lsp")
 lua require("mk.treesitter")
-lua require("mk.telescope")
-lua require("mk.telescope.mappings")
 
 " do not save any netrw history or bookmarks
 let g:netrw_dirhistmax=0

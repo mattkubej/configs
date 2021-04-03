@@ -7,7 +7,7 @@ local map_telescope = function(key, f, options, buffer)
 
   local mode = "n"
   local rhs = string.format(
-    "<cmd>lua require('mk.telescope')['%s'](TelescopeMapArgs['%s'])<CR>",
+    "<cmd>lua require('mk.plugins.telescope')['%s'](TelescopeMapArgs['%s'])<CR>",
     f,
     map_key
   )

@@ -20,13 +20,6 @@ lua require("mk.lsp")
 let g:netrw_dirhistmax=0
 
 " ========================================
-" --> plugins - nerdtree
-" ========================================
-nnoremap <C-n> :NERDTreeToggle<CR>
-nnoremap <leader>n :NERDTreeFind<CR>
-let NERDTreeShowHidden=1
-
-" ========================================
 " --> plugins - vim-ripgrep
 " ========================================
 if executable('rg')

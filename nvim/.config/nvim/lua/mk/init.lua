@@ -11,4 +11,4 @@ require('mk.plugins')
 require("mk.lsp")
 
 -- load keymaps
-require("mk.mappings")
+require("mk.keymaps")

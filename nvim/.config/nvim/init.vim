@@ -13,15 +13,10 @@ lua require('mk.options')
 " load plugins
 lua require('mk.plugins')
 
+lua require("mk.lsp")
 lua require("mk.treesitter")
-
 lua require("mk.telescope")
 lua require("mk.telescope.mappings")
-
-" ========================================
-" --> plugins - lsp
-" ========================================
-source $HOME/.config/nvim/config/lsp.vim
 
 " do not save any netrw history or bookmarks
 let g:netrw_dirhistmax=0

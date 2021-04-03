@@ -13,6 +13,7 @@ lua require('mk.options')
 " load plugins
 lua require('mk.plugins')
 
+" load lsp
 lua require("mk.lsp")
 
 " do not save any netrw history or bookmarks

@@ -67,6 +67,9 @@ function M.lsp_references()
   }
 end
 
+
+require('mk.plugins.telescope.mappings')
+
 return setmetatable({}, {
   __index = function(_, k)
     reloader()

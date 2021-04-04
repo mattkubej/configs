@@ -1,38 +1,49 @@
 return require('packer').startup(function()
   use 'wbthomason/packer.nvim'
 
-  use 'HerringtonDarkholme/yats.vim'
-  use 'aklt/plantuml-syntax'
-  use 'chriskempson/base16-vim'
-  use 'christoomey/vim-tmux-navigator'
-  use 'dag/vim-fish'
-  use 'dense-analysis/ale'
-  use 'derekwyatt/vim-scala'
-  use 'editorconfig/editorconfig-vim'
-  use 'fatih/vim-go'
+  -- nvim extensions
+  use 'nvim-lua/plenary.nvim' -- helper lua functions
+  use 'nvim-lua/popup.nvim' -- popup api for nvim
+
+  -- text formatting
+  use 'junegunn/vim-easy-align' -- text alignment
+  use 'tpope/vim-surround' -- surround text helpers
+
+  -- git
+  use 'junegunn/gv.vim' -- git commit browser
+  use 'tpope/vim-fugitive' -- git wrapper
+
+  -- general language configuration
+  use 'dense-analysis/ale' -- ale linting
+  use 'editorconfig/editorconfig-vim' -- EditorConfig plugin
+  use 'neovim/nvim-lspconfig' -- common lsp configurations
+  use 'nvim-lua/completion-nvim' -- auto-completion for lsp
+  use 'scrooloose/nerdcommenter' -- comment functions
+  use {'nvim-treesitter/nvim-treesitter', run = ':TSUpdate'}
+
+  -- language specific plugins
+  use 'HerringtonDarkholme/yats.vim' -- yet another TypeScript syntax
+  use 'fatih/vim-go' -- Go language support
+  use 'kubejm/jest.nvim' -- jest test runner
+  use 'mattn/emmet-vim' -- emmet shortcuts
+  use 'maxmellon/vim-jsx-pretty' -- jsx syntax highlighting and indenting
+  use 'pangloss/vim-javascript' -- js syntax highlighting and indenting
+  use 'prettier/vim-prettier' -- prettier integration
+
+  -- search/navigation
   use {'junegunn/fzf', dir = '~/.fzf', run = './install --all'}
   use 'junegunn/fzf.vim'
-  use 'junegunn/gv.vim'
-  use 'junegunn/vim-easy-align'
-  use 'kubejm/jest.nvim'
-  use 'mattn/emmet-vim'
-  use 'maxmellon/vim-jsx-pretty'
-  use 'neovim/nvim-lspconfig'
-  use 'nvim-lua/completion-nvim'
-  use 'nvim-lua/diagnostic-nvim'
-  use 'nvim-lua/plenary.nvim'
-  use 'nvim-lua/popup.nvim'
-  use 'nvim-lua/telescope.nvim'
-  use {'nvim-treesitter/nvim-treesitter', run = ':TSUpdate'}
-  use 'pangloss/vim-javascript'
-  use 'prettier/vim-prettier'
-  use 'scrooloose/nerdcommenter'
-  use 'scrooloose/nerdtree'
-  use 'scrooloose/vim-slumlord'
-  use 'tpope/vim-fugitive'
-  use 'tpope/vim-sensible'
-  use 'tpope/vim-surround'
-  use 'vimwiki/vimwiki'
-  use 'yuezk/vim-js'
-  use 'hoob3rt/lualine.nvim'
+  use 'nvim-lua/telescope.nvim' -- fuzzy finder and previewer
+  use 'scrooloose/nerdtree' -- file explorer
+
+  -- aesthetics
+  use 'chriskempson/base16-vim' -- base16 color themes
+  use 'hoob3rt/lualine.nvim' -- statusline
+
+  -- misc
+  use 'vimwiki/vimwiki' -- wiki within vim
+
+  -- possibly unmaintained
+  use 'christoomey/vim-tmux-navigator' -- navigative between nvim and tmux
+  use 'dag/vim-fish' -- fish script support
 end)

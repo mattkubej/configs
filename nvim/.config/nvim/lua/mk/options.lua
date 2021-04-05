@@ -37,11 +37,7 @@ opt.colorcolumn    = 80
 opt.t_vb           = ''
 opt.belloff        = 'all'
 
--- trying out new wrapping
-opt.wrap           = true
-opt.breakindent    = true
-opt.showbreak      = string.rep(' ', 3)
-opt.linebreak      = true
+opt.wrap           = false
 
 opt.foldmethod     = 'marker'
 opt.foldlevel      = 0

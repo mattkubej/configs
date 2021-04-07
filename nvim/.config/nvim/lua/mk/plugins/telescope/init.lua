@@ -67,6 +67,22 @@ function M.lsp_references()
   }
 end
 
+function M.fd()
+  require('telescope.builtin').fd()
+end
+
+function M.grep_prompt()
+  require('telescope.builtin').grep_string {
+    shorten_path = true,
+    search = vim.fn.input("Grep String > "),
+  }
+end
+
+function M.buffers()
+  require('telescope.builtin').buffers {
+    shorten_path = false,
+  }
+end
 
 require('mk.plugins.telescope.mappings')
 

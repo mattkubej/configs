@@ -27,11 +27,16 @@ end
 -- dotfiles
 map_telescope('<leader>en', 'edit_nvim')
 
+-- search
+map_telescope('<leader>sf', 'git_files')
+
 -- files
 map_telescope('<leader>fo', 'git_files')
 map_telescope('<leader>ff', 'all_files')
+map_telescope('<leader>fd', 'fd')
 
 -- nvim
 map_telescope('<leader>fr', 'lsp_references')
+map_telescope('<leader>fb', 'buffers')
 
 return map_telescope

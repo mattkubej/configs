@@ -29,6 +29,7 @@ map_telescope('<leader>en', 'edit_nvim')
 
 -- search
 map_telescope('<leader>sf', 'git_files')
+map_telescope('<leader>z', 'live_grep')
 
 -- files
 map_telescope('<leader>fo', 'git_files')

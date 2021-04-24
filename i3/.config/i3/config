@@ -209,7 +209,7 @@ exec --no-startup-id feh --bg-fill --no-xinerama ~/Documents/wallpapers/dots.jpg
 exec_always --no-startup-id killall polybar; polybar main
 
 # redshift
-exec --no-startup-id redshift-gtk
+# exec --no-startup-id redshift-gtk -l 43.1979:70.8737
 
 # Focus the big output
 # bindsym $mod+x focus output HDMI-2

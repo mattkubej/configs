@@ -19,6 +19,7 @@ return require('packer').startup(function()
   use 'neovim/nvim-lspconfig' -- common lsp configurations
   use 'nvim-lua/completion-nvim' -- auto-completion for lsp
   use 'scrooloose/nerdcommenter' -- comment functions
+  use 'jxnblk/vim-mdx-js' -- mdx highlighting
   use {'nvim-treesitter/nvim-treesitter', run = ':TSUpdate'}
 
   -- language specific plugins

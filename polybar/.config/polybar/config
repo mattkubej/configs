@@ -1,5 +1,5 @@
 [theme]
-; base16 - gruvbox dark, soft 
+; base16 - gruvbox dark, soft
 grey---- = #32302f
 grey--- = #3c3836
 grey-- = #504945
@@ -21,10 +21,10 @@ brown = #d65d0e
 [colors]
 background = ${theme.grey----}
 background-alt = ${theme.grey--}
-foreground = ${theme.tan++++} 
-foreground-alt = ${theme.tan++} 
-primary = ${theme.blue} 
-secondary = ${theme.aqua} 
+foreground = ${theme.tan++++}
+foreground-alt = ${theme.tan++}
+primary = ${theme.blue}
+secondary = ${theme.aqua}
 alert = ${theme.red}
 
 [bar/main]
@@ -40,7 +40,6 @@ line-size = 3
 line-color = #f00
 
 border-size = 4
-;border-color = #00000000
 
 padding-left = 0
 padding-right = 2
@@ -50,16 +49,13 @@ module-margin-right = 2
 
 font-0 = fixed:pixelsize=10;1
 font-1 = unifont:fontformat=truetype:size=8:antialias=false;0
-font-2 = siji:pixelsize=10;1 
+font-2 = siji:pixelsize=10;1
 
 modules-left = i3
 modules-right = filesystem pulseaudio xkeyboard memory cpu eth temperature date powermenu
 
-tray-position = right
+tray-position = none
 tray-padding = 2
-
-;wm-restack = i3
-;override-redirect = false
 
 cursor-click = pointer
 cursor-scroll = ns-resize
@@ -130,7 +126,7 @@ type = internal/cpu
 interval = 2
 format-prefix = " "
 format-prefix-foreground = ${colors.foreground-alt}
-format-underline = ${colors.primary} 
+format-underline = ${colors.primary}
 label = %percentage:2%%
 
 [module/memory]
@@ -138,7 +134,7 @@ type = internal/memory
 interval = 2
 format-prefix = " "
 format-prefix-foreground = ${colors.foreground-alt}
-format-underline = ${colors.primary} 
+format-underline = ${colors.primary}
 label = %percentage_used%%
 
 [module/eth]
@@ -146,7 +142,7 @@ type = internal/network
 interface = enp2s0
 interval = 3.0
 
-format-connected-underline = ${colors.primary} 
+format-connected-underline = ${colors.primary}
 format-connected-prefix = " "
 format-connected-prefix-foreground = ${colors.foreground-alt}
 label-connected = %local_ip%
@@ -179,16 +175,16 @@ label-volume = VOL %percentage%%
 label-volume-foreground = ${root.foreground}
 
 label-muted = 🔇 muted
-label-muted-foreground = ${colors.background-alt} 
+label-muted-foreground = ${colors.background-alt}
 
 bar-volume-width = 10
 bar-volume-foreground-0 = ${theme.green}
 bar-volume-foreground-1 = ${theme.green}
-bar-volume-foreground-2 = ${theme.green} 
+bar-volume-foreground-2 = ${theme.green}
 bar-volume-foreground-3 = ${theme.green}
 bar-volume-foreground-4 = ${theme.green}
 bar-volume-foreground-5 = ${theme.orange}
-bar-volume-foreground-6 = ${theme.red} 
+bar-volume-foreground-6 = ${theme.red}
 bar-volume-gradient = false
 bar-volume-indicator = |
 bar-volume-indicator-font = 2

@@ -215,8 +215,8 @@ exec --no-startup-id redshift-gtk
 # bindsym $mod+x focus output HDMI-2
 
 # default stereo and headphones
-exec pactl set-default-source 'alsa_input.usb-Samson_Technologies_Samson_Meteor_Mic-00.analog-stereo'
-exec pactl set-default-sink 'alsa_output.pci-0000_00_1f.3.analog-stereo'
+exec pactl set-default-source alsa_input.usb-Samson_Technologies_Samson_Meteor_Mic-00.analog-stereo
+exec pactl set-default-sink alsa_output.pci-0000_00_1f.3.analog-stereo
 
 # Make the currently focused window a scratchpad
 bindsym $mod+Shift+minus move scratchpad

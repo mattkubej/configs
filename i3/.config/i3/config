@@ -191,9 +191,7 @@ gaps inner 10
 gaps outer 10
 
 # startup compton to combat screen tearing
-exec --no-startup-id picom \
-       --config ~/configs/picom/.config/picom/picom.conf \
-       --experimental-backends -b
+exec --no-startup-id compton --config ~/.config/compton.conf -b
 
 # keyboard refresh rate
 exec_always --no-startup-id xset r rate 300 50

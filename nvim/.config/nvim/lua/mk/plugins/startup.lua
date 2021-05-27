@@ -14,7 +14,6 @@ return require('packer').startup(function()
   use 'tpope/vim-fugitive' -- git wrapper
 
   -- general language configuration
-  use 'dense-analysis/ale' -- ale linting
   use 'editorconfig/editorconfig-vim' -- EditorConfig plugin
   use 'neovim/nvim-lspconfig' -- common lsp configurations
   use 'nvim-lua/completion-nvim' -- auto-completion for lsp

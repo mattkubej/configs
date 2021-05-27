@@ -2,7 +2,6 @@ require('mk.plugins.startup')
 
 require('mk.plugins.telescope')
 
-require('mk.plugins.configs.ale')
 require('mk.plugins.configs.base16')
 require('mk.plugins.configs.easyalign')
 require('mk.plugins.configs.lualine')

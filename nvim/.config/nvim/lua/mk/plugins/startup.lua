@@ -20,6 +20,7 @@ return require('packer').startup(function()
   use 'scrooloose/nerdcommenter' -- comment functions
   use 'jxnblk/vim-mdx-js' -- mdx highlighting
   use {'nvim-treesitter/nvim-treesitter', run = ':TSUpdate'}
+  use 'nvim-treesitter/playground'
 
   -- language specific plugins
   use 'HerringtonDarkholme/yats.vim' -- yet another TypeScript syntax
@@ -37,7 +38,8 @@ return require('packer').startup(function()
   use 'scrooloose/nerdtree' -- file explorer
 
   -- aesthetics
-  use 'chriskempson/base16-vim' -- base16 color themes
+  use 'chriskempson/base16-vim' -- base16 theme
+  use 'eddyekofo94/gruvbox-flat.nvim' -- gruvbox theme
   use 'hoob3rt/lualine.nvim' -- statusline
 
   -- misc

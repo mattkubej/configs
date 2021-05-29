@@ -12,6 +12,12 @@ return require('packer').startup(function()
   -- git
   use 'junegunn/gv.vim' -- git commit browser
   use 'tpope/vim-fugitive' -- git wrapper
+  use { -- git signs
+    'lewis6991/gitsigns.nvim',
+    requires = {
+      'nvim-lua/plenary.nvim'
+    }
+  }
 
   -- general language configuration
   use 'editorconfig/editorconfig-vim' -- EditorConfig plugin

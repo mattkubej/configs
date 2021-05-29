@@ -9,12 +9,6 @@ function fish_user_key_bindings
     end
 end
 
-# startup fish in tmux
-if status is-interactive
-  and not set -q TMUX
-  tmux attach -t default || tmux new -s default ^ /dev/null; and exec true
-end
-
 # override ls with exa, if exists
 if command -v exa > /dev/null
   abbr -a l 'exa'

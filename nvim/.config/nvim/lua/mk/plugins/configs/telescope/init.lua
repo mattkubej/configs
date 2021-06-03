@@ -84,7 +84,7 @@ function M.buffers()
   }
 end
 
-require('mk.plugins.telescope.mappings')
+require('mk.plugins.configs.telescope.mappings')
 
 return setmetatable({}, {
   __index = function(_, k)

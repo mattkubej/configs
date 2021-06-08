@@ -4,7 +4,7 @@ fish_vi_key_bindings
 alias sp='nvim $HOME/notes/scratchpad-(date +"%m-%d-%Y").md'
 
 # tmux main session
-alias tam='tat ~/ main'
+alias tam='tat -c ~/ -s main'
 
 function fish_user_key_bindings
     for mode in insert default visual

@@ -1,15 +1,38 @@
 #!/bin/bash
 
-# based on https://github.com/thoughtbot/dotfiles/blob/master/bin/tat
+# USAGE
+#   ./tat [-c <directory>] [-s <session_name>]
+#
+# OPTIONS
+#   -c
+#     file directory (defaults to current directory)
+#
+#   -s
+#     session name (defaults to basename of current directory)
+#
+# SEE ALSO
+#   based on https://github.com/thoughtbot/dotfiles/blob/master/bin/tat
 
-if [ $# -eq 1 ] && [ -d $1 ]; then
-  dir=$1
-else
-  dir=$PWD
+while getopts ":c:s:" o; do
+  case "${o}" in
+    c)
+      custom_dir=${OPTARG}
+      ;;
+    s)
+      custom_name=${OPTARG}
+      ;;
+  esac
+done
+
+dir=${custom_dir-$PWD}
+
+if [ ! -d $dir ]; then
+  echo "directory '$dir' is invalid or does not exist"
+  exit 1
 fi
 
 path_name=$(basename "$dir")
-session_name=${2-$path_name}
+session_name=${custom_name-$path_name}
 
 not_in_tmux() {
   [ -z "$TMUX" ]

@@ -50,6 +50,7 @@ return require('packer').startup(function()
 
   -- misc
   use 'vimwiki/vimwiki' -- wiki within vim
+  use 'tpope/vim-unimpaired' -- common mappings
 
   -- possibly unmaintained
   use 'christoomey/vim-tmux-navigator' -- navigative between nvim and tmux

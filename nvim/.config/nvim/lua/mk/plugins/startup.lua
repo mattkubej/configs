@@ -45,7 +45,7 @@ return require('packer').startup(function()
 
   -- aesthetics
   use 'chriskempson/base16-vim' -- base16 theme
-  use 'kubejm/gruvbox-flat.nvim' -- gruvbox theme
+  use 'eddyekofo94/gruvbox-flat.nvim' -- gruvbox theme
   use 'hoob3rt/lualine.nvim' -- statusline
 
   -- misc

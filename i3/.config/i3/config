@@ -202,8 +202,8 @@ exec --no-startup-id xrandr \
       --output DP-3 --left-of DVI-D-0 \
       --output DP-5 --right-of DVI-D-0
 
-# multiscreen wallpaper
-exec --no-startup-id feh --bg-fill --no-xinerama ~/Documents/wallpapers/dots.jpg
+# wallpaper
+exec --no-startup-id feh --bg-tile ~/Documents/wallpapers/ghost-tile.png
 
 # kick up polybar
 exec_always --no-startup-id killall polybar; polybar main

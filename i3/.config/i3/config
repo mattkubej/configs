@@ -203,7 +203,7 @@ exec --no-startup-id xrandr \
       --output DP-5 --right-of DVI-D-0
 
 # wallpaper
-exec --no-startup-id feh --bg-tile ~/Documents/wallpapers/ghost-tile.png
+exec --no-startup-id feh --bg-tile ~/Pictures/wallpapers/ghost-tile.png
 
 # kick up polybar
 exec_always --no-startup-id killall polybar; polybar main

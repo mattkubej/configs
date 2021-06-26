@@ -32,6 +32,7 @@ width = 100%
 height = 27
 radius = 6.0
 fixed-center = false
+dpi = 128
 
 background = ${colors.background}
 foreground = ${colors.foreground}
@@ -47,9 +48,9 @@ padding-right = 2
 module-margin-left = 1
 module-margin-right = 2
 
-font-0 = fixed:pixelsize=10;1
+font-0 = DejaVuSansMono Nerd Font:size=10;1
 font-1 = unifont:fontformat=truetype:size=8:antialias=false;0
-font-2 = siji:pixelsize=10;1
+font-2 = Font Awesome 5 Free Regular:style=Regular:size=10;1
 
 modules-left = i3
 modules-right = filesystem pulseaudio xkeyboard memory cpu eth temperature date powermenu
@@ -68,7 +69,7 @@ label = %title:0:30:...%
 type = internal/xkeyboard
 blacklist-0 = num lock
 
-format-prefix = " "
+format-prefix = " "
 format-prefix-foreground = ${colors.foreground-alt}
 format-prefix-underline = ${colors.primary}
 
@@ -124,7 +125,7 @@ label-urgent-padding = 2
 [module/cpu]
 type = internal/cpu
 interval = 2
-format-prefix = " "
+format-prefix = " "
 format-prefix-foreground = ${colors.foreground-alt}
 format-underline = ${colors.primary}
 label = %percentage:2%%
@@ -132,7 +133,7 @@ label = %percentage:2%%
 [module/memory]
 type = internal/memory
 interval = 2
-format-prefix = " "
+format-prefix = "m "
 format-prefix-foreground = ${colors.foreground-alt}
 format-underline = ${colors.primary}
 label = %percentage_used%%
@@ -143,7 +144,7 @@ interface = enp2s0
 interval = 3.0
 
 format-connected-underline = ${colors.primary}
-format-connected-prefix = " "
+format-connected-prefix = "n "
 format-connected-prefix-foreground = ${colors.foreground-alt}
 label-connected = %local_ip%
 
@@ -159,7 +160,7 @@ date-alt = " %Y-%m-%d"
 time = %I:%M
 time-alt = %I:%M:%S
 
-format-prefix = 
+format-prefix = 
 format-prefix-foreground = ${colors.foreground-alt}
 format-underline = ${colors.primary}
 
@@ -199,7 +200,7 @@ type = internal/temperature
 thermal-zone = 0
 warn-temperature = 60
 
-format = <ramp> <label>
+format = <ramp>  <label>
 format-underline = ${colors.primary}
 format-warn = <ramp> <label-warn>
 format-warn-underline = ${self.format-underline}
@@ -220,9 +221,9 @@ expand-right = true
 
 format-spacing = 1
 
-label-open = 
+label-open = 
 label-open-foreground = ${theme.brown}
-label-close =  cancel
+label-close =  cancel
 label-close-foreground = ${theme.brown}
 label-separator = |
 label-separator-foreground = ${colors.foreground-alt}

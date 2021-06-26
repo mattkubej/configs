@@ -198,9 +198,8 @@ exec_always --no-startup-id xset r rate 300 50
 
 # monitor setup
 exec --no-startup-id xrandr \
-      --output DVI-D-0 --primary --mode 1920x1080 --rate 144 \
-      --output DP-3 --left-of DVI-D-0 \
-      --output DP-5 --right-of DVI-D-0
+      --output HDMI-0 --primary --auto \
+      --output DP-3 --right-of HDMI-0 --scale 1.5x1.5
 
 # wallpaper
 exec --no-startup-id feh --bg-tile ~/Pictures/wallpapers/ghost-tile.png

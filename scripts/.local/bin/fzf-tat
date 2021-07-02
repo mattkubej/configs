@@ -28,6 +28,6 @@ strip_directory_prefix() {
 selected_dir=$(find_directories | strip_directory_prefix | fzf)
 
 if [[ -n $selected_dir ]]; then
-  tat -c "${search_dir}${selected_dir}" -s $selected_dir
+  tat -c "${search_dir}${selected_dir}" -s $selected_dir > /dev/null 2>&1
 fi
 

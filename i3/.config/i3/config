@@ -55,7 +55,7 @@ bindsym $mod+Shift+q kill
 # bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
 
 # rofi
-bindsym $mod+d exec --no-startup-id "rofi -show drun -theme gruvbox-dark-soft -font \\"DejaVu 9\\" -run-shell-command '{terminal} -e \\" {cmd}; read -n 1 -s\\"'"
+bindsym $mod+d exec --no-startup-id "rofi -show drun -theme gruvbox-dark-soft -dpi 0 -font \\"DejaVu 9\\" -run-shell-command '{terminal} -e \\" {cmd}; read -n 1 -s\\"'"
 
 # change focus
 bindsym $mod+j focus left

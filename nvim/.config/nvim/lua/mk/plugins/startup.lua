@@ -22,7 +22,7 @@ return require('packer').startup(function()
   -- general language configuration
   use 'editorconfig/editorconfig-vim' -- EditorConfig plugin
   use 'neovim/nvim-lspconfig' -- common lsp configurations
-  use 'nvim-lua/completion-nvim' -- auto-completion for lsp
+  use 'hrsh7th/nvim-compe' -- lsp completion
   use 'scrooloose/nerdcommenter' -- comment functions
   use 'jxnblk/vim-mdx-js' -- mdx highlighting
   use {'nvim-treesitter/nvim-treesitter', run = ':TSUpdate'}

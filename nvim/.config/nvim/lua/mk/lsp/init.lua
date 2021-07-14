@@ -1,13 +1,11 @@
-local completion = require('completion')
 local nvim_lsp = require('lspconfig')
 
 require('mk.lsp.options')
+require('mk.lsp.compe')
 
 local on_attach = function(client, bufnr)
   local function buf_set_keymap(...) vim.api.nvim_buf_set_keymap(bufnr, ...) end
   local function buf_set_option(...) vim.api.nvim_buf_set_option(bufnr, ...) end
-
-  completion.on_attach(client, bufnr)
 
   -- Mappings.
   local opts = { noremap=true, silent=true }

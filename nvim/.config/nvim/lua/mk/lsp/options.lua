@@ -3,6 +3,6 @@ local opt = vim.opt
 
 vim.cmd [[set shortmess+=c]]
 
-opt.completeopt = {'menuone', 'noinsert', 'noselect'}
+opt.completeopt = {'menuone', 'noselect'}
 
 vim.g.completion_matching_strategy_list = {'exact', 'substring', 'fuzzy'}

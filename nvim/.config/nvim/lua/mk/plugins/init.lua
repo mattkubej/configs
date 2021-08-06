@@ -1,6 +1,7 @@
 require('mk.plugins.startup')
 
 require('mk.plugins.configs.easyalign')
+require('mk.plugins.configs.formatter')
 require('mk.plugins.configs.gitsigns')
 require('mk.plugins.configs.gruvbox-flat')
 require('mk.plugins.configs.lualine')

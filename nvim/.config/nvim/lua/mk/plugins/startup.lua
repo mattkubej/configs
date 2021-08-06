@@ -32,6 +32,7 @@ return require('packer').startup(function()
   use 'fatih/vim-go' -- Go language support
   use 'kubejm/jest.nvim' -- jest test runner
   use 'mattn/emmet-vim' -- emmet shortcuts
+  use 'mhartington/formatter.nvim' -- formatting
 
   -- search/navigation
   use {'junegunn/fzf', dir = '~/.fzf', run = './install --all'}

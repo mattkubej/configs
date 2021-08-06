@@ -4,4 +4,7 @@ require'nvim-treesitter.configs'.setup{
     enable = true,
     disable = { "ocaml" },
   },
+  indent = {
+    enable = true,
+  },
 }

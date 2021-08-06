@@ -29,13 +29,9 @@ return require('packer').startup(function()
   use 'nvim-treesitter/playground'
 
   -- language specific plugins
-  use 'HerringtonDarkholme/yats.vim' -- yet another TypeScript syntax
   use 'fatih/vim-go' -- Go language support
   use 'kubejm/jest.nvim' -- jest test runner
   use 'mattn/emmet-vim' -- emmet shortcuts
-  use 'maxmellon/vim-jsx-pretty' -- jsx syntax highlighting and indenting
-  use 'pangloss/vim-javascript' -- js syntax highlighting and indenting
-  use 'prettier/vim-prettier' -- prettier integration
 
   -- search/navigation
   use {'junegunn/fzf', dir = '~/.fzf', run = './install --all'}

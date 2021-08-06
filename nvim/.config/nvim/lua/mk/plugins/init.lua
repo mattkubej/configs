@@ -1,6 +1,5 @@
 require('mk.plugins.startup')
 
--- require('mk.plugins.configs.base16')
 require('mk.plugins.configs.easyalign')
 require('mk.plugins.configs.gitsigns')
 require('mk.plugins.configs.gruvbox-flat')

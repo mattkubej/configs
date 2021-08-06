@@ -40,7 +40,6 @@ return require('packer').startup(function()
   use 'scrooloose/nerdtree' -- file explorer
 
   -- aesthetics
-  use 'chriskempson/base16-vim' -- base16 theme
   use 'eddyekofo94/gruvbox-flat.nvim' -- gruvbox theme
   use 'hoob3rt/lualine.nvim' -- statusline
 

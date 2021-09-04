@@ -78,6 +78,7 @@ _G.packer_plugins = {
     path = "/home/matt/.local/share/nvim/site/pack/packer/start/emmet-vim"
   },
   ["formatter.nvim"] = {
+    config = { "require('mk.plugins.configs.formatter')" },
     loaded = true,
     path = "/home/matt/.local/share/nvim/site/pack/packer/start/formatter.nvim"
   },
@@ -90,10 +91,12 @@ _G.packer_plugins = {
     path = "/home/matt/.local/share/nvim/site/pack/packer/start/fzf.vim"
   },
   ["gitsigns.nvim"] = {
+    config = { "require('mk.plugins.configs.gitsigns')" },
     loaded = true,
     path = "/home/matt/.local/share/nvim/site/pack/packer/start/gitsigns.nvim"
   },
   ["gruvbox-flat.nvim"] = {
+    config = { "require('mk.plugins.configs.gruvbox-flat')" },
     loaded = true,
     path = "/home/matt/.local/share/nvim/site/pack/packer/start/gruvbox-flat.nvim"
   },
@@ -106,10 +109,12 @@ _G.packer_plugins = {
     path = "/home/matt/.local/share/nvim/site/pack/packer/start/jest.nvim"
   },
   ["lualine.nvim"] = {
+    config = { "require('mk.plugins.configs.lualine')" },
     loaded = true,
     path = "/home/matt/.local/share/nvim/site/pack/packer/start/lualine.nvim"
   },
   nerdcommenter = {
+    config = { "require('mk.plugins.configs.nerdtree')" },
     loaded = true,
     path = "/home/matt/.local/share/nvim/site/pack/packer/start/nerdcommenter"
   },
@@ -118,14 +123,17 @@ _G.packer_plugins = {
     path = "/home/matt/.local/share/nvim/site/pack/packer/start/nerdtree"
   },
   ["nvim-compe"] = {
+    config = { 'require("mk.plugins.configs.compe")' },
     loaded = true,
     path = "/home/matt/.local/share/nvim/site/pack/packer/start/nvim-compe"
   },
   ["nvim-lspconfig"] = {
+    config = { 'require("mk.plugins.configs.lsp")' },
     loaded = true,
     path = "/home/matt/.local/share/nvim/site/pack/packer/start/nvim-lspconfig"
   },
   ["nvim-treesitter"] = {
+    config = { "require('mk.plugins.configs.treesitter')" },
     loaded = true,
     path = "/home/matt/.local/share/nvim/site/pack/packer/start/nvim-treesitter"
   },
@@ -146,10 +154,12 @@ _G.packer_plugins = {
     path = "/home/matt/.local/share/nvim/site/pack/packer/start/popup.nvim"
   },
   ["telescope.nvim"] = {
+    config = { "require('mk.plugins.configs.telescope')" },
     loaded = true,
     path = "/home/matt/.local/share/nvim/site/pack/packer/start/telescope.nvim"
   },
   ["vim-easy-align"] = {
+    config = { "require('mk.plugins.configs.easyalign')" },
     loaded = true,
     path = "/home/matt/.local/share/nvim/site/pack/packer/start/vim-easy-align"
   },
@@ -182,12 +192,57 @@ _G.packer_plugins = {
     path = "/home/matt/.local/share/nvim/site/pack/packer/start/vim-unimpaired"
   },
   vimwiki = {
+    config = { "require('mk.plugins.configs.vimwiki')" },
     loaded = true,
     path = "/home/matt/.local/share/nvim/site/pack/packer/start/vimwiki"
   }
 }
 
 time([[Defining packer_plugins]], false)
+-- Config for: vim-easy-align
+time([[Config for vim-easy-align]], true)
+require('mk.plugins.configs.easyalign')
+time([[Config for vim-easy-align]], false)
+-- Config for: nvim-treesitter
+time([[Config for nvim-treesitter]], true)
+require('mk.plugins.configs.treesitter')
+time([[Config for nvim-treesitter]], false)
+-- Config for: gitsigns.nvim
+time([[Config for gitsigns.nvim]], true)
+require('mk.plugins.configs.gitsigns')
+time([[Config for gitsigns.nvim]], false)
+-- Config for: telescope.nvim
+time([[Config for telescope.nvim]], true)
+require('mk.plugins.configs.telescope')
+time([[Config for telescope.nvim]], false)
+-- Config for: nerdcommenter
+time([[Config for nerdcommenter]], true)
+require('mk.plugins.configs.nerdtree')
+time([[Config for nerdcommenter]], false)
+-- Config for: vimwiki
+time([[Config for vimwiki]], true)
+require('mk.plugins.configs.vimwiki')
+time([[Config for vimwiki]], false)
+-- Config for: formatter.nvim
+time([[Config for formatter.nvim]], true)
+require('mk.plugins.configs.formatter')
+time([[Config for formatter.nvim]], false)
+-- Config for: nvim-lspconfig
+time([[Config for nvim-lspconfig]], true)
+require("mk.plugins.configs.lsp")
+time([[Config for nvim-lspconfig]], false)
+-- Config for: gruvbox-flat.nvim
+time([[Config for gruvbox-flat.nvim]], true)
+require('mk.plugins.configs.gruvbox-flat')
+time([[Config for gruvbox-flat.nvim]], false)
+-- Config for: lualine.nvim
+time([[Config for lualine.nvim]], true)
+require('mk.plugins.configs.lualine')
+time([[Config for lualine.nvim]], false)
+-- Config for: nvim-compe
+time([[Config for nvim-compe]], true)
+require("mk.plugins.configs.compe")
+time([[Config for nvim-compe]], false)
 if should_profile then save_profiles() end
 
 end)

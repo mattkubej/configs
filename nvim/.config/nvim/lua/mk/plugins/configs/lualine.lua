@@ -4,13 +4,12 @@ require('lualine').setup{
     icons_enabled = false,
   },
   sections = {
-    lualine_c = {
-      {
-        'filename',
-        file_status = true,
-        path = 1
-      }
-    }
+    lualine_a = { 'mode' },
+    lualine_b = { 'hostname' },
+    lualine_c = { 'branch', 'filename' },
+    lualine_x = { 'encoding', 'fileformat' }, -- filetype causes lag
+    lualine_y = { 'progress' },
+    lualine_z = { 'location'  },
   },
   extensions = { 'fugitive', 'fzf', 'nerdtree' }
 }

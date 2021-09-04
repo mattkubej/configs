@@ -1,7 +1,6 @@
 local nvim_lsp = require('lspconfig')
 
-require('mk.lsp.options')
-require('mk.lsp.compe')
+require('mk.plugins.configs.lsp.options')
 
 local on_attach = function(client, bufnr)
   local function buf_set_keymap(...) vim.api.nvim_buf_set_keymap(bufnr, ...) end
@@ -23,30 +22,7 @@ local on_attach = function(client, bufnr)
   buf_set_keymap('n', '<C-k>', '<cmd>lua vim.lsp.buf.signature_help()<CR>', opts)
 end
 
-nvim_lsp.clangd.setup{
-  cmd = {
-    "clangd-11",
-    "--background-index",
-    "--suggest-missing-includes",
-    "--clang-tidy",
-    "--header-insertion=iwyu",
-  },
-  on_attach = on_attach,
-}
-
-nvim_lsp.sumneko_lua.setup{
-  settings = {
-    Lua = {
-      diagnostics = {
-        enable = true,
-        globals = { "vim" },
-      },
-    }
-  },
-  on_attach = on_attach,
-}
-
-local servers = {'gopls', 'html', 'ocamllsp', 'svelte', 'tsserver'}
+local servers = {'solargraph', 'tsserver'}
 for _, lsp in ipairs(servers) do
   nvim_lsp[lsp].setup { on_attach = on_attach }
 end

@@ -1,6 +1,4 @@
-local compe = require('compe')
-
-compe.setup {
+require('compe').setup {
   enabled = true;
   autocomplete = true;
   debug = false;
@@ -35,9 +33,9 @@ compe.setup {
 }
 
 local set_keymap = vim.api.nvim_set_keymap
-local opts = { expr=true, noremap=true, silent=true }
+local opts = { noremap=true, silent=true, expr=true }
 
-set_keymap('i', '<C-Space>', "compe#complete()", opts)
+set_keymap('i', '<C-Space>', 'compe#complete()', opts)
 set_keymap('i', '<CR>', "compe#confirm('<CR>')", opts)
 set_keymap('i', '<C-e>', "compe#close('<C-e>')", opts)
 set_keymap('i', '<C-f>', "compe#scroll({ 'delta': +4 })", opts)

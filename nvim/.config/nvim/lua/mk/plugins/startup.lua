@@ -96,4 +96,5 @@ return require('packer').startup(function()
   use 'windwp/nvim-ts-autotag' -- auto-closing tags
   use 'tpope/vim-sleuth' -- auto adjust shiftwidth and expand tab
   use 'ray-x/lsp_signature.nvim' -- lsp signature help
+  use 'nvim-treesitter/nvim-treesitter-textobjects'
 end)

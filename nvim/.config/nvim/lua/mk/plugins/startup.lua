@@ -20,7 +20,7 @@ return require('packer').startup(function()
     requires = {
       'nvim-lua/plenary.nvim'
     },
-    config = function() require('mk.plugins.configs.gitsigns') end
+    config = function() require('gitsigns').setup() end
   }
 
   -- general language configuration
@@ -72,10 +72,6 @@ return require('packer').startup(function()
     'hoob3rt/lualine.nvim', -- statusline
     config = function() require('mk.plugins.configs.lualine') end
   }
-  use {
-    'lukas-reineke/indent-blankline.nvim', -- line guides
-    config = function() require('mk.plugins.configs.indent-blankline') end
-  }
 
   -- misc
   use {
@@ -87,4 +83,16 @@ return require('packer').startup(function()
   -- possibly unmaintained
   use 'christoomey/vim-tmux-navigator' -- navigative between nvim and tmux
   use 'dag/vim-fish' -- fish script support
+
+  -- testing
+  use {
+    'norcalli/nvim-colorizer.lua', -- highlight css colors
+    config = function() require('mk.plugins.configs.nvim-colorizer') end
+  }
+  use {
+    'windwp/nvim-autopairs',
+    config = function() require('mk.plugins.configs.nvim-autopairs') end
+  }
+  use 'windwp/nvim-ts-autotag' -- auto-closing tags
+  use 'tpope/vim-sleuth' -- auto adjust shiftwidth and expand tab
 end)

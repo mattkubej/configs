@@ -20,7 +20,7 @@ opt.tabstop        = 2
 opt.clipboard      = 'unnamedplus'
 opt.laststatus     = 2
 
-opt.undodir        = '~/.vimdid'
+opt.undodir        = vim.fn.expand('$HOME/.vimdid//')
 opt.undofile       = true
 opt.swapfile       = false
 opt.inccommand     = 'split'

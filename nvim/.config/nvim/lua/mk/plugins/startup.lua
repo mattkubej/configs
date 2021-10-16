@@ -59,6 +59,7 @@ return require('packer').startup(function()
     'nvim-lua/telescope.nvim', -- fuzzy finder and previewer
     config = function() require('mk.plugins.configs.telescope') end
   }
+  use {'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
   use 'scrooloose/nerdtree' -- file explorer
 
   -- aesthetics

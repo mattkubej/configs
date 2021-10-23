@@ -1,7 +1,5 @@
 local nvim_lsp = require('lspconfig')
 
-require('mk.plugins.configs.lsp.options')
-
 local buf_nnoremap = function(bufnr, opts)
   opts.buffer = 0
   vim.api.nvim_buf_set_keymap(bufnr, opts)
@@ -105,8 +103,8 @@ local servers = {
     on_attach = function(client, bufnr)
       ts_utils_attach(client, bufnr)
       custom_attach(client, bufnr)
-    end
-  }
+    end,
+  },
 }
 
 local setup_server = function(server, config)

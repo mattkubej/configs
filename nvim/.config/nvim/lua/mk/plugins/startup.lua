@@ -35,6 +35,8 @@ return require('packer').startup(function()
     'hrsh7th/nvim-cmp', -- lsp auto completion
     config = function() require("mk.plugins.configs.cmp") end
   }
+  use 'L3MON4D3/LuaSnip'
+  use 'saadparwaiz1/cmp_luasnip'
   use {
     'scrooloose/nerdcommenter', -- comment functions
     config = function() require('mk.plugins.configs.nerdtree') end

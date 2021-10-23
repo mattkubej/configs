@@ -1,17 +1,32 @@
+vim.opt.completeopt = { "menu", "menuone", "noselect" }
+vim.opt.shortmess:append "c"
+vim.g.completion_matching_strategy_list = {'exact', 'substring', 'fuzzy'}
+
 local cmp = require('cmp')
 
 cmp.setup({
   mapping = {
-    ['<C-d>'] = cmp.mapping.scroll_docs(-4),
-    ['<C-f>'] = cmp.mapping.scroll_docs(4),
-    ['<C-Space>'] = cmp.mapping.complete(),
-    ['<C-e>'] = cmp.mapping.close(),
-    ['<CR>'] = cmp.mapping.confirm({ select = true }),
+    ['<c-d>'] = cmp.mapping.scroll_docs(-4),
+    ['<c-f>'] = cmp.mapping.scroll_docs(4),
+    ['<c-space>'] = cmp.mapping.complete(),
+    ['<c-e>'] = cmp.mapping.close(),
+    ['<c-y>'] = cmp.mapping.confirm({
+      behavior = cmp.ConfirmBehavior.Insert,
+      select = true
+    }),
   },
   sources = {
     { name = 'nvim_lsp' },
-    { name = 'buffer' },
-  }
+    { name = 'buffer', keyword_length = 5 },
+  },
+  snippet = {
+    expand = function(args)
+      require("luasnip").lsp_expand(args.body)
+    end,
+  },
+  experimental = {
+    native_menu = false,
+  },
 })
 
 require('nvim-autopairs.completion.cmp').setup({

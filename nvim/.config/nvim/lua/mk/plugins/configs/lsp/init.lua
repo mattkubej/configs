@@ -2,16 +2,16 @@ local nvim_lsp = require('lspconfig')
 
 require('mk.plugins.configs.lsp.options')
 
--- enable null-ls integration (optional)
+local buf_nnoremap = function(bufnr, opts)
+  opts.buffer = 0
+  vim.api.nvim_buf_set_keymap(bufnr, opts)
+end
+
+-- enable null-ls integration
 require("null-ls").config {}
 require("lspconfig")["null-ls"].setup {}
 
-local on_attach = function(client, bufnr)
-  require('lsp_signature').on_attach({
-    bind = true,
-    floating_window = false,
-  }, bufnr)
-
+local ts_utils_attach = function(client, bufnr)
   -- disable tsserver formatting if you plan on formatting via null-ls
   client.resolved_capabilities.document_formatting = false
   client.resolved_capabilities.document_range_formatting = false
@@ -60,16 +60,25 @@ local on_attach = function(client, bufnr)
   -- required to fix code action ranges and filter diagnostics
   ts_utils.setup_client(client)
 
-  -- no default maps, so you may want to define some here
-  local opts = { silent = true }
-  vim.api.nvim_buf_set_keymap(bufnr, "n", "gs", ":TSLspOrganize<CR>", opts)
-  vim.api.nvim_buf_set_keymap(bufnr, "n", "gr", ":TSLspRenameFile<CR>", opts)
-  vim.api.nvim_buf_set_keymap(bufnr, "n", "gi", ":TSLspImportAll<CR>", opts)
-
   local function buf_set_keymap(...) vim.api.nvim_buf_set_keymap(bufnr, ...) end
-  local function buf_set_option(...) vim.api.nvim_buf_set_option(bufnr, ...) end
 
-  -- Mappings.
+  local opts = { silent = true }
+
+  buf_set_keymap("n", "gs", ":TSLspOrganize<CR>", opts)
+  buf_set_keymap("n", "gr", ":TSLspRenameFile<CR>", opts)
+  buf_set_keymap("n", "gi", ":TSLspImportAll<CR>", opts)
+end
+
+local signature_attach = function(client, bufnr)
+  require('lsp_signature').on_attach({
+    bind = true,
+    floating_window = false,
+  }, bufnr)
+end
+
+local custom_attach = function(client, bufnr)
+  local function buf_set_keymap(...) vim.api.nvim_buf_set_keymap(bufnr, ...) end
+
   local opts = { noremap=true, silent=true }
 
   buf_set_keymap('n', 'gdp', '<cmd>lua vim.lsp.diagnostic.goto_prev()<CR>', opts)
@@ -84,16 +93,42 @@ local on_attach = function(client, bufnr)
   buf_set_keymap('n', 'K', '<Cmd>lua vim.lsp.buf.hover()<CR>', opts)
   buf_set_keymap('n', '<C-k>', '<cmd>lua vim.lsp.buf.signature_help()<CR>', opts)
   buf_set_keymap('n', '<leader>f', '<cmd>lua vim.lsp.buf.formatting()<CR>', opts)
+
+  signature_attach(client, bufnr)
 end
 
-local capabilities = function()
-  require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
-end
+local updated_capabilities = vim.lsp.protocol.make_client_capabilities()
+updated_capabilities = require('cmp_nvim_lsp').update_capabilities(updated_capabilities)
 
-local servers = {'tsserver'}
-for _, lsp in ipairs(servers) do
-  nvim_lsp[lsp].setup {
-    on_attach = on_attach,
-    capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
+local servers = {
+  tsserver = {
+    on_attach = function(client, bufnr)
+      ts_utils_attach(client, bufnr)
+      custom_attach(client, bufnr)
+    end
   }
+}
+
+local setup_server = function(server, config)
+  if not config then
+    return
+  end
+
+  if type(config) ~= "table" then
+    config = {}
+  end
+
+  config = vim.tbl_deep_extend("force", {
+    on_attach = custom_attach,
+    capabilities = updated_capabilities,
+    flags = {
+      debounce_text_changes = 50,
+    },
+  }, config)
+
+  nvim_lsp[server].setup(config)
+end
+
+for server, config in pairs(servers) do
+  setup_server(server, config)
 end

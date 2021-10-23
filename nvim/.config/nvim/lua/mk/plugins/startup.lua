@@ -37,11 +37,14 @@ return require('packer').startup(function()
       'hrsh7th/cmp-nvim-lsp',
       'hrsh7th/cmp-nvim-lua',
       'hrsh7th/cmp-path',
+      'hrsh7th/cmp-buffer',
+      'saadparwaiz1/cmp_luasnip',
+      'L3MON4D3/LuaSnip',
+      'onsails/lspkind-nvim',
     },
     config = function() require("mk.plugins.configs.cmp") end
   }
-  use 'L3MON4D3/LuaSnip'
-  use 'saadparwaiz1/cmp_luasnip'
+  use 'rafamadriz/friendly-snippets'
 
   use {
     'scrooloose/nerdcommenter', -- comment functions

@@ -40,11 +40,11 @@ return require('packer').startup(function()
       'hrsh7th/cmp-buffer',
       'saadparwaiz1/cmp_luasnip',
       'L3MON4D3/LuaSnip',
+      'rafamadriz/friendly-snippets',
       'onsails/lspkind-nvim',
     },
     config = function() require("mk.plugins.configs.cmp") end
   }
-  use 'rafamadriz/friendly-snippets'
 
   use {
     'scrooloose/nerdcommenter', -- comment functions

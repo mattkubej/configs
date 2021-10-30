@@ -47,9 +47,14 @@ return require('packer').startup(function()
   }
 
   use {
-    'scrooloose/nerdcommenter', -- comment functions
-    config = function() require('mk.plugins.configs.nerdtree') end
+    'terrortylor/nvim-comment',
+    requires = {
+      'JoosepAlviste/nvim-ts-context-commentstring'
+    },
+    config = function() require('mk.plugins.configs.nvim-comment') end
   }
+  use {"JoosepAlviste/nvim-ts-context-commentstring"}
+
   use 'jxnblk/vim-mdx-js' -- mdx highlighting
   use {
     'nvim-treesitter/nvim-treesitter',

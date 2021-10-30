@@ -44,6 +44,10 @@ cmp.setup({
         fallback()
       end
     end, { "i", "s" }),
+    ['<CR>'] = cmp.mapping.confirm({
+      behavior = cmp.ConfirmBehavior.Insert,
+      select = false,
+    }),
   },
   sources = {
     { name = 'nvim_lua' },
@@ -72,17 +76,6 @@ cmp.setup({
   experimental = {
     native_menu = false,
   },
-})
-
-require('nvim-autopairs.completion.cmp').setup({
-  map_cr = true,
-  map_complete = true,
-  auto_select = true,
-  insert = false,
-  map_char = {
-    all = '(',
-    tex = '{'
-  }
 })
 
 -- require('luasnip/loaders/from_vscode').lazy_load()

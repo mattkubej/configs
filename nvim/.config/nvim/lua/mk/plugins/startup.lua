@@ -76,7 +76,11 @@ return require('packer').startup(function()
     config = function() require('mk.plugins.configs.telescope') end
   }
   use {'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
-  use 'scrooloose/nerdtree' -- file explorer
+  use {
+    'kyazdani42/nvim-tree.lua',
+    requires = 'kyazdani42/nvim-web-devicons',
+    config = function() require('mk.plugins.configs.nvim-tree') end
+  }
 
   -- aesthetics
   use {

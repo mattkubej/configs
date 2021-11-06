@@ -1,9 +1,3 @@
-function load_config_cb(plugin)
-  return function()
-    require('mk.plugins.configs' .. plugin)
-  end
-end
-
 return require('packer').startup(function()
   use 'wbthomason/packer.nvim'
 
@@ -14,7 +8,7 @@ return require('packer').startup(function()
   -- text formatting
   use {
     'junegunn/vim-easy-align', -- text alignment
-    config = load_config_cb('easyalign')
+    config = function() require('mk.plugins.configs.easyalign') end,
   }
   use 'tpope/vim-surround' -- surround text helpers
 
@@ -26,14 +20,14 @@ return require('packer').startup(function()
     requires = {
       'nvim-lua/plenary.nvim'
     },
-    config = load_config_cb('gitsigns')
+    config = function() require('mk.plugins.configs.gitsigns') end,
   }
 
   -- general language configuration
   use 'editorconfig/editorconfig-vim' -- EditorConfig plugin
   use {
     'neovim/nvim-lspconfig', -- common lsp configurations
-    config = load_config_cb('lsp')
+    config = function() require('mk.plugins.configs.lsp') end,
   }
 
   -- completion
@@ -49,7 +43,7 @@ return require('packer').startup(function()
       'rafamadriz/friendly-snippets',
       'onsails/lspkind-nvim',
     },
-    config = load_config_cb('cmp')
+    config = function() require('cmp') end,
   }
 
   use {
@@ -57,7 +51,7 @@ return require('packer').startup(function()
     requires = {
       'JoosepAlviste/nvim-ts-context-commentstring'
     },
-    config = load_config_cb('nvim-comment')
+    config = function() require('mk.plugins.configs.nvim-comment') end,
   }
   use {"JoosepAlviste/nvim-ts-context-commentstring"}
 
@@ -65,7 +59,7 @@ return require('packer').startup(function()
   use {
     'nvim-treesitter/nvim-treesitter',
     run = ':TSUpdate',
-    config = load_config_cb('treesitter')
+    config = function() require('mk.plugins.configs.treesitter') end,
   }
   use 'nvim-treesitter/playground'
 
@@ -79,29 +73,29 @@ return require('packer').startup(function()
   use 'junegunn/fzf.vim'
   use {
     'nvim-lua/telescope.nvim', -- fuzzy finder and previewer
-    config = load_config_cb('telescope')
+    config = function() require('mk.plugins.configs.telescope') end,
   }
   use {'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
   use {
     'kyazdani42/nvim-tree.lua',
     requires = 'kyazdani42/nvim-web-devicons',
-    config = load_config_cb('nvim-tree')
+    config = function() require('mk.plugins.configs.nvim-tree') end,
   }
 
   -- aesthetics
   use {
     'eddyekofo94/gruvbox-flat.nvim', -- gruvbox theme
-    config = load_config_cb('gruvbox-flat')
+    config = function() require('mk.plugins.configs.gruvbox-flat') end,
   }
   use {
     'hoob3rt/lualine.nvim', -- statusline
-    config = load_config_cb('lualine')
+    config = function() require('mk.plugins.configs.lualine') end,
   }
 
   -- misc
   use {
     'vimwiki/vimwiki', -- wiki within vim
-    config = load_config_cb('vimwiki')
+    config = function() require('mk.plugins.configs.vimwiki') end,
   }
   use 'tpope/vim-unimpaired' -- common mappings
 
@@ -112,11 +106,11 @@ return require('packer').startup(function()
   -- testing
   use {
     'norcalli/nvim-colorizer.lua', -- highlight css colors
-    config = load_config_cb('nvim-colorizer')
+    config = function() require('mk.plugins.configs.nvim-colorizer') end,
   }
   use {
     'windwp/nvim-autopairs',
-    config = load_config_cb('nvim-autopairs')
+    config = function() require('nvim-autopairs') end,
   }
   use 'windwp/nvim-ts-autotag' -- auto-closing tags
   use 'tpope/vim-sleuth' -- auto adjust shiftwidth and expand tab

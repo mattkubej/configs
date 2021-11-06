@@ -43,7 +43,7 @@ return require('packer').startup(function()
       'rafamadriz/friendly-snippets',
       'onsails/lspkind-nvim',
     },
-    config = function() require('cmp') end,
+    config = function() require('mk.plugins.configs.cmp') end,
   }
 
   use {

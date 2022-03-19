@@ -40,7 +40,6 @@ return require('packer').startup(function(use)
       'hrsh7th/cmp-buffer',
       'saadparwaiz1/cmp_luasnip',
       'L3MON4D3/LuaSnip',
-      'rafamadriz/friendly-snippets',
       'onsails/lspkind-nvim',
     },
     config = function() require('mk.plugins.configs.cmp') end,

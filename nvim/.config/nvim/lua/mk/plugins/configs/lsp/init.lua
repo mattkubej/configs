@@ -1,10 +1,5 @@
 local nvim_lsp = require('lspconfig')
 
-local buf_nnoremap = function(bufnr, opts)
-  opts.buffer = 0
-  vim.api.nvim_buf_set_keymap(bufnr, opts)
-end
-
 -- enable null-ls integration
 local null_ls = require("null-ls")
 null_ls.setup {

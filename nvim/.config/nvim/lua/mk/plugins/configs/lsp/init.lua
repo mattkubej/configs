@@ -117,7 +117,24 @@ local servers = {
   cssls = true,
   eslint = true,
   graphql = true,
-  sumneko_lua = true,
+  sumneko_lua = {
+    settings = {
+      Lua = {
+        runtime = {
+          version = 'LuaJIT',
+        },
+        diagnostics = {
+          globals = {'vim'},
+        },
+        workspace = {
+          library = vim.api.nvim_get_runtime_file("", true),
+        },
+        telemetry = {
+          enable = false,
+        },
+      },
+    },
+  },
 }
 
 local setup_server = function(server, config)

@@ -63,6 +63,6 @@ set -x GRADLE_HOME /opt/gradle/latest
 set -x PATH $PATH $GRADLE_HOME/bin
 
 # OPAM configuration
-source /home/matt/.opam/opam-init/init.fish > /dev/null 2> /dev/null or true
+#source /home/matt/.opam/opam-init/init.fish > /dev/null 2> /dev/null or true
 
 starship init fish | source

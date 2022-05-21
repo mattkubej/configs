@@ -91,8 +91,7 @@ local custom_attach = function(client, bufnr)
 
   if client.name ~= 'tsserver' then
     vim.keymap.set('n', '<leader>f', function()
-      local params = util.make_formatting_params({})
-      client.request('textDocument/formatting', params, nil, bufnr)
+      vim.lsp.buf.format({ async = true })
     end, opts)
   end
 

@@ -210,6 +210,9 @@ exec_always --no-startup-id killall polybar; polybar main
 # redshift
 exec --no-startup-id redshift-gtk
 
+# mount gdrive
+exec rclone mount --vfs-cache-mode writes --daemon gdrive: ~/gdrive
+
 # Focus the big output
 # bindsym $mod+x focus output HDMI-2
 

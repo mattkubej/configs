@@ -61,6 +61,10 @@ return require('packer').startup(function(use)
     config = function() require('mk.plugins.configs.treesitter') end,
   }
   use 'nvim-treesitter/playground'
+  use {
+    'nvim-treesitter/nvim-treesitter-context',
+    config = function() require('mk.plugins.configs.treesitter-context') end,
+  }
 
   -- language specific plugins
   use 'fatih/vim-go' -- Go language support

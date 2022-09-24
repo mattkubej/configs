@@ -108,6 +108,7 @@ local servers = {
   cssls = true,
   eslint = true,
   graphql = true,
+  rust_analyzer = true,
   sumneko_lua = {
     settings = {
       Lua = {

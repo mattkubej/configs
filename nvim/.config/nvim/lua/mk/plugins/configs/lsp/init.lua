@@ -46,7 +46,7 @@ local ts_utils_attach = function(client, bufnr)
 
       -- filter diagnostics
       filter_out_diagnostics_by_severity = {},
-      filter_out_diagnostics_by_code = {},
+      filter_out_diagnostics_by_code = { 80001 },
   }
 
   -- required to fix code action ranges and filter diagnostics
